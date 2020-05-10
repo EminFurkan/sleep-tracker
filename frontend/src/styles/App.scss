@@ -271,7 +271,7 @@ nav {
       font-size: 64px;
       color: #EE5966;
       animation: appear1 .7s linear 0s 1 forwards;
-      animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+      animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
 
       @keyframes appear1 {
         from { opacity: 0; top: 30% }
@@ -289,7 +289,7 @@ nav {
       font-weight: 300;
       opacity: 0;
       animation: appear linear 1s .5s 1 forwards;
-      animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+      animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
       
       @keyframes appear {
         from { opacity: 0; top: 75% }
@@ -301,13 +301,13 @@ nav {
         width: auto;
         background: url('../assets/brush2.png') center center no-repeat;
         margin-bottom: 1rem;
-        color: $black;
+        color: #222;
       }
 
       li {
         margin-bottom: 1rem;
         width: auto;
-        height: 2rem;
+        height: 2.5rem;
         background: url('../assets/brush.png') center center no-repeat;
         background-size: 100% 100%;
         display: flex;
