@@ -1,3 +1,7 @@
 import React from 'react';
+import './styles/App.scss';
+import { Landing } from './components/layout/Landing';
 
-export const App = () => <div>Hi</div>
+export const App = () => (
+  <Landing />
+)

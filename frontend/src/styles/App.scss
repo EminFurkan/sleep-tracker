@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,200&display=swap');
+
+//General Settings
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-family: 'Roboto', sans-serif;
+  color: #202020;
+  background-color: #fafafa;
+  font-smooth: always;
+  -webkit-font-smoothing: antialised;
+  -mos-osx-font-smoothing: grayscale;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  scroll-behavior: smooth;
+}
+
+//Variables
+$white: #FFFEFE;
+$red: #D53C2D;
+$yellow: #EFAE6B;
+$black: #1A0405;
+$green: #428E8A;
+$dark-brown: #4A353A;
+$beige: #D7B8A5;
+$blue: #396F92;
+$box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+
+//Mixins
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// Navbar
+nav {
+  width: 100%;
+  height: 3rem;
+  color: $yellow;
+  box-shadow: $box-shadow;
+  background-color: rgba(255,255,255,.2);
+  backdrop-filter: saturate(180%) blur(20px);
+  position: fixed;
+  z-index: 100;
+
+  .container {
+    margin: auto;
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      width: 24px;
+      height: 24px;
+    }
+
+    ul {
+      display: flex;
+      list-style-type: none;
+
+      li {
+        height: 3rem;
+        width: auto;
+
+        button {
+          padding: .5rem;
+          color: inherit;
+          font-size: 14px;
+          width: 100%;
+          height: 100%;
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+          border-bottom: 2px solid transparent;
+          transition: border-bottom .4s ease-out;
+
+          &:hover {
+            border-bottom: $yellow 2px solid;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Main
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: calc(100vh);
+
+  &__left {
+    background-color: $dark-brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    img { 
+      width: 80%;
+      border-radius: 3px;
+      box-shadow: $box-shadow;
+      animation: fade-in 1s linear 2.5s 1 forwards;
+      opacity: 0;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1;}
+    }
+
+  }
+  &__right {
+    background-color: $blue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    h2 {
+      @include no-select();
+      position: absolute;
+      font-size: 64px;
+      color: $yellow;
+      animation: slidein .5s linear 1s 1 forwards;
+      opacity: 0;
+    }
+
+    .color-1 {
+      color: #928939;
+    }
+    .color-2 {
+      color: #40925C;
+    }
+    .color-3 {
+      color: #92396F;
+    }
+    .color-4 {
+      color: #925C39;
+    }
+    .color-5 {
+      color: #923943;
+    }
+    .color-6 {
+      color: #6F9239;
+    }
+
+    p {
+      @include no-select();
+      position: absolute;
+      font-size: 28px;
+      font-family: 'Raleway', sans-serif;;
+      color: transparentize($color: $white, $amount: .2);
+      animation: slideup .5s linear 1.6s 1 forwards;
+      opacity: 0;
+    }
+    
+    @keyframes slidein {
+      from { opacity: 0; top: 30%; }
+      to { opacity: 1; top: 22%; }
+    }
+    @keyframes slideup {
+      from { opacity: 0; top: 40%; }
+      to { opacity: 1; top: 32%; }
+    }
+
+    form {
+      margin-top: 3rem;
+      display: flex;
+      left: calc(120%);
+      width: 80%;
+      flex-direction: column;
+      animation: slide-left .5s linear 2s 1 forwards;
+      position: absolute;
+
+      @keyframes slide-left {
+        from { left: calc(120%) }
+        to { left: calc(10%); }
+      }
+
+      input {
+        outline: none;
+        height: 2rem;
+        width: 20rem;
+        margin: .5rem auto;
+        border-radius: 3px;
+        border: none;
+        font-size: 14px;
+        padding-left: .5rem;
+      }
+
+      button {
+        width: 10rem;
+        height: 2.5rem;
+        margin: 1rem auto;
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: 500;
+        background-color: $yellow;
+        border: none;
+        cursor: pointer;
+        color: $white;
+        transition: background-color .4s ease-out;
+
+        &:hover {
+          background-color: darken($color: $yellow, $amount: 10%);
+        }
+      }
+    }
+  }
+}
+
+// How it works
+.how-it-works {
+  height: calc(100vh);
+  color: #4894C5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4B2F88;
+  background: radial-gradient(circle, rgba(21,14,50,1) 70%, rgba(0,0,0,1) 100%);
+  position: relative;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .plants {
+    opacity: .7;
+    position: absolute;
+    left: -14%;   
+    top: 50%;
+    transform: rotate(-85deg); 
+  }
+
+  .plants-2 {
+    opacity: .7;
+    position: absolute;
+    left: 75%;
+    top: 50%;
+    transform: rotate(-65deg); 
+  }
+
+  &__text {
+    @include no-select();
+    h2 {
+      position: absolute;
+      top: 10%;
+      left: 38%;
+      font-size: 64px;
+      color: #EE5966;
+      animation: appear1 .7s linear 0s 1 forwards;
+      animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+
+      @keyframes appear1 {
+        from { opacity: 0; top: 30% }
+        to { opacity: 1; top: 10%; }
+      }
+    }
+    ul {
+      position: absolute;
+      top: 50%;
+      left: 33%;
+      font-size: 18px;
+      color: $white;
+      text-align: center;
+      list-style-type: none;
+      font-weight: 300;
+      opacity: 0;
+      animation: appear linear 1s .5s 1 forwards;
+      animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+      
+      @keyframes appear {
+        from { opacity: 0; top: 75% }
+        to { opacity: 1; top: 50%; }
+      }
+
+      p {
+        font-weight: 600;
+        width: auto;
+        background: url('../assets/brush2.png') center center no-repeat;
+        margin-bottom: 1rem;
+        color: $black;
+      }
+
+      li {
+        margin-bottom: 1rem;
+        width: auto;
+        height: 2rem;
+        background: url('../assets/brush.png') center center no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
