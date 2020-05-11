@@ -125,7 +125,7 @@ nav {
       width: 80%;
       border-radius: 3px;
       box-shadow: $box-shadow;
-      animation: fade-in 1s linear 2.5s 1 forwards;
+      animation: fade-in 1s linear 1.5s 1 forwards;
       opacity: 0;
     }
 
@@ -148,7 +148,7 @@ nav {
       position: absolute;
       font-size: 64px;
       color: $yellow;
-      animation: slidein .5s linear 1s 1 forwards;
+      animation: slidein .5s linear .5s 1 forwards;
       animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
       opacity: 0;
     }
@@ -178,7 +178,7 @@ nav {
       font-size: 28px;
       font-family: 'Raleway', sans-serif;;
       color: transparentize($color: $white, $amount: .2);
-      animation: slideup .5s linear 1.6s 1 forwards;
+      animation: slideup .5s linear 1s 1 forwards;
       opacity: 0;
       animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
     }
@@ -198,7 +198,7 @@ nav {
       left: calc(120%);
       width: 80%;
       flex-direction: column;
-      animation: slide-left .5s linear 2s 1 forwards;
+      animation: slide-left .5s linear 1.3s 1 forwards;
       animation-timing-function:cubic-bezier(0, 0.55, 0.45, 1);
       position: absolute;
 
@@ -219,6 +219,7 @@ nav {
       }
 
       button {
+        position: relative;
         width: 10rem;
         height: 2.5rem;
         margin: 1rem auto;
@@ -231,9 +232,29 @@ nav {
         color: $white;
         transition: background-color .4s ease-out;
         outline: none;
-        
-        &:hover {
+
+        .btn-default {
+          display: inherit;
+          position: relative;
+          z-index: 1;
+        }
+
+        .btn {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          left: 0;
+          top: 0;
+          border-radius: inherit;
+          width: 0%;
+          height: 100%;
           background-color: darken($color: $yellow, $amount: 10%);
+          transition: width 300ms ease 0s;
+        }
+
+        &:hover .btn{
+          width: 100%;
         }
       }
     }
@@ -412,9 +433,30 @@ nav {
         color: $white;
         transition: background-color .4s ease-out;
         outline: none;
-      
-        &:hover {
+        position: relative;
+
+        .btn-default {
+          display: inherit;
+          position: relative;
+          z-index: 1;
+        }
+
+        .btn {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          left: 0;
+          top: 0;
+          border-radius: inherit;
+          width: 0%;
+          height: 100%;
           background-color: darken($color: $yellow, $amount: 10%);
+          transition: width 300ms ease 0s;
+        }
+
+        &:hover .btn{
+          width: 100%;
         }
       } 
     }

@@ -22,7 +22,10 @@ export const Login = () => {
               autoComplete="on"
               placeholder="Password"
             />
-            <button>Login</button>
+            <button>
+              <span className="btn-default">Login</span>
+              <span className="btn"></span>
+            </button>
           </form>
           <footer>
             <p>

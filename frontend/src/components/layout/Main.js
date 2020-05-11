@@ -45,7 +45,10 @@ export const Main = () => {
               setColor(Math.floor(Math.random() * (6 - 0 + 1)) + 0)
             }
           />
-          <button>Sign up</button>
+          <button>
+            <span className="btn-default">Sign up</span>
+            <span className="btn"></span>
+          </button>
         </form>
       </div>
     </main>

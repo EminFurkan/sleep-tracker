@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import bird from '../../assets/bird.png';
 import plants from '../../assets/plants.png';
 
-export const HowItWorks = ({ animate }) => {
+export const HowItWorks = () => {
   const [display, setDisplay] = useState(false);
 
   const handleEvent = () => {
