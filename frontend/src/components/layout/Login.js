@@ -35,8 +35,6 @@ export const Login = () => {
         </div>
         <img src={girl} alt="girl" />
       </div>
-      {/* <div className="login__left">
-      </div> */}
     </div>
   );
 };

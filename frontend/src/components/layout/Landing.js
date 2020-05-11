@@ -3,12 +3,10 @@ import { Navbar } from './Navbar';
 import { Main } from './Main';
 import { HowItWorks } from './HowItWorks';
 
-export const Landing = () => {
-  return (
-    <div>
-      <Navbar />
-      <Main />
-      <HowItWorks />
-    </div>
-  );
-};
+export const Landing = () => (
+  <>
+    <Navbar />
+    <Main />
+    <HowItWorks />
+  </>
+);

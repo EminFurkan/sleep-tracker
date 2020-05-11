@@ -203,7 +203,7 @@ nav {
       position: absolute;
 
       @keyframes slide-left {
-        from { left: calc(120%) }
+        from { right: calc(-50vw); }
         to { left: calc(10%); }
       }
 
@@ -230,7 +230,8 @@ nav {
         cursor: pointer;
         color: $white;
         transition: background-color .4s ease-out;
-
+        outline: none;
+        
         &:hover {
           background-color: darken($color: $yellow, $amount: 10%);
         }
@@ -274,55 +275,60 @@ nav {
 
   &__text {
     @include no-select();
-    h2 {
-      position: absolute;
-      top: 10%;
-      left: 38%;
-      font-size: 64px;
-      color: #EE5966;
-      animation: appear1 .7s linear 0s 1 forwards;
-      animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
-
-      @keyframes appear1 {
-        from { opacity: 0; top: 30% }
-        to { opacity: 1; top: 10%; }
-      }
-    }
-    ul {
-      position: absolute;
-      top: 50%;
-      left: 33%;
-      font-size: 18px;
-      color: $white;
-      text-align: center;
-      list-style-type: none;
-      font-weight: 300;
-      opacity: 0;
-      animation: appear linear 1s .5s 1 forwards;
-      animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+    
+    &-animate {
       
-      @keyframes appear {
-        from { opacity: 0; top: 75% }
-        to { opacity: 1; top: 50%; }
+      h2 {
+        position: absolute;
+        top: 10%;
+        left: 38%;
+        font-size: 64px;
+        color: #EE5966;
+        opacity: 0;
+        animation: appear1 .7s linear 0s 1 forwards;
+        animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+  
+        @keyframes appear1 {
+          from { opacity: 0; top: 30% }
+          to { opacity: 1; top: 10%; }
+        }
       }
-
-      p {
-        font-weight: 600;
-        width: auto;
-        background: url('../assets/brush2.png') center center no-repeat;
-        margin-bottom: 1rem;
-        color: #222;
-      }
-
-      li {
-        margin-bottom: 1rem;
-        width: auto;
-        height: 2.5rem;
-        background: url('../assets/brush.png') center center no-repeat;
-        background-size: 100% 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      ul {
+        position: absolute;
+        top: 50%;
+        left: 33%;
+        font-size: 18px;
+        color: $white;
+        text-align: center;
+        list-style-type: none;
+        font-weight: 300;
+        opacity: 0;
+        animation: appear linear 1s .5s 1 forwards;
+        animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+        
+        @keyframes appear {
+          from { opacity: 0; top: 75% }
+          to { opacity: 1; top: 50%; }
+        }
+  
+        p {
+          font-weight: 600;
+          width: auto;
+          background: url('../assets/brush2.png') center center no-repeat;
+          margin-bottom: 1rem;
+          color: #222;
+        }
+  
+        li {
+          margin-bottom: 1rem;
+          width: auto;
+          height: 2.5rem;
+          background: url('../assets/brush.png') center center no-repeat;
+          background-size: 100% 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
@@ -405,6 +411,7 @@ nav {
         cursor: pointer;
         color: $white;
         transition: background-color .4s ease-out;
+        outline: none;
       
         &:hover {
           background-color: darken($color: $yellow, $amount: 10%);
