@@ -295,9 +295,9 @@ nav {
   }
 
   &__text {
-    @include no-select();
     
     &-animate {
+      @include no-select();
       
       h2 {
         position: absolute;
