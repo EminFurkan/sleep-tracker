@@ -80,6 +80,11 @@ nav {
         height: 3rem;
         width: auto;
 
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
         button {
           padding: .5rem;
           color: inherit;
@@ -92,11 +97,6 @@ nav {
           border-bottom: 2px solid transparent;
           transition: border-bottom .4s ease-out;
           outline: none;
-
-          a {
-            text-decoration: none;
-            color: inherit;
-          }
 
           &:hover {
             border-bottom: $yellow 2px solid;

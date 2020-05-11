@@ -16,9 +16,9 @@ export const Navbar = () => {
             <button>Sign up</button>
           </li>
           <li>
-            <button>
-              <Link to="/login">Log in</Link>
-            </button>
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
           </li>
         </ul>
       </div>
