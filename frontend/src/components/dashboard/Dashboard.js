@@ -1,7 +1,5 @@
 import React from 'react';
 
 export const Dashboard = () => {
-  return (
-    <div>hi</div>
-  )
-}
+  return <div>hi</div>;
+};
