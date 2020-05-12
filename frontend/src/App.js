@@ -5,7 +5,7 @@ import { Landing } from './components/layout/Landing';
 import { Login } from './components/layout/Login';
 import { Loader } from './components/layout/Loader';
 import { PrivateRoute } from './routing/PrivateRoute';
-import { Dashboard } from './components/Dashboard';
+import { Dashboard } from './components/dashboard/Dashboard';
 
 export const App = () => {
   return (
