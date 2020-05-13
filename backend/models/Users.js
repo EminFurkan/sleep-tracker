@@ -10,12 +10,17 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  picture: {
+  image: {
     type: String
   },
   date: {
     type: Date,
     default: Date.now()
+  },
+  time_span: {
+    start: Number,
+    end: Number,
+    string: String
   }
 });
 
