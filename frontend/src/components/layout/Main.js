@@ -6,15 +6,11 @@ import illustration from '../../assets/illustration.jpg';
 export const Main = () => {
   const [color, setColor] = useState();
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const { email, password } = e.target.elements;
-    register({ email, password });
-  };
-
-  if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
-  }
+  // const onSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const { email, password } = e.target.elements;
+  //   register({ email, password });
+  // };
 
   return (
     <main className="main-content">
