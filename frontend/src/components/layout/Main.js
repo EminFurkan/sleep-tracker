@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import { register } from '../../auth';
 import illustration from '../../assets/illustration.jpg';
 
 export const Main = () => {
@@ -33,7 +31,7 @@ export const Main = () => {
           <span className={'color-' + Math.abs(color - 0)}>R</span>
         </h2>
         <p>Get a good nights sleep, and wake up happy</p>
-        <form onSubmit={onSubmit}>
+        <form>
           <input
             type="email"
             name="email"
