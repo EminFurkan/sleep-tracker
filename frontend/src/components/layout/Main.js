@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { register } from '../../auth';
 import illustration from '../../assets/illustration.jpg';
 
 export const Main = () => {
   const [color, setColor] = useState();
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = e.target.elements;
+    register({ email, password });
+  };
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <main className="main-content">
@@ -25,7 +37,7 @@ export const Main = () => {
           <span className={'color-' + Math.abs(color - 0)}>R</span>
         </h2>
         <p>Get a good nights sleep, and wake up happy</p>
-        <form>
+        <form onSubmit={onSubmit}>
           <input
             type="email"
             name="email"
