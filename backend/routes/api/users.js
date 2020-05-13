@@ -68,4 +68,26 @@ router.post(
   }
 );
 
+// @route   GET api/users/me
+// @desc    Get user profile by user id
+// @access  Private
+router.get('/me', auth, async (req, res) => {
+  try {
+    const user = await User.findOne({
+      user: req.user.id
+    }).populate('user', ['image', 'time_span']);
+
+    if (!user) {
+      return res
+        .status(400)
+        .json({ msg: 'There is no profile for this user.' });
+    }
+
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error.');
+  }
+});
+
 module.exports = router;
