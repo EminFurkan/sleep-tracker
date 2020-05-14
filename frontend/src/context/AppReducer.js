@@ -2,13 +2,13 @@ export default (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    // case USER_LOADED:
-    //   return {
-    //     ...state,
-    //     isAuthenticated: true,
-    //     loading: false,
-    //     user: payload
-    //   };
+    case 'USER_LOADED':
+      return {
+        ...state,
+        isAuthenticated: true,
+        loading: false,
+        user: payload
+      };
     case 'REGISTER_SUCCESS':
       return {
         ...state,

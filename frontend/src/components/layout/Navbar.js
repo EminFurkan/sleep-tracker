@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useConextValue, useContextValue } from '../../context/GlobalState';
+import { useContextValue } from '../../context/GlobalState';
 
 export const Navbar = () => {
   const { isAuthenticated, logout, loading } = useContextValue();

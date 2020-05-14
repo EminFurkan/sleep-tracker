@@ -62,9 +62,26 @@ export const GlobalProvider = ({ children }) => {
         type: 'LOGIN_SUCCESS',
         payload: res.data
       });
+      loadUser();
     } catch (err) {
       const errors = err.response.data.errors;
       console.log(errors);
+      dispatch({
+        type: 'AUTH_ERROR'
+      });
+    }
+  }
+
+  // Load user
+  async function loadUser() {
+    try {
+      const res = await axios.get('/api/auth');
+
+      dispatch({
+        type: 'USER_LOADED',
+        payload: res.data
+      });
+    } catch (err) {
       dispatch({
         type: 'AUTH_ERROR'
       });
