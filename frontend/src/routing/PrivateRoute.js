@@ -1,20 +1,23 @@
-// import React from 'react';
-// import { useAuthValue } from '../context/auth';
-// import { Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { useContextValue } from '../context/GlobalState';
+import { Loader } from '../components/layout/Loader';
 
-// export const PrivateRoute = ({ component: Component, ...rest }) => {
-//   const { isAuthenticated } = useAuthValue();
+export const PrivateRoute = ({ component: Component, ...rest }) => {
+  const { isAuthenticated, loading } = useContextValue();
 
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) =>
-//         !isAuthenticated ? (
-//           <Redirect to="/login" />
-//         ) : (
-//           <Component {...props} />
-//         )
-//       }
-//     />
-//   );
-// };
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        loading ? (
+          <Loader />
+        ) : isAuthenticated ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/login" />
+        )
+      }
+    />
+  );
+};

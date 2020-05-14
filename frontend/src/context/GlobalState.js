@@ -1,5 +1,6 @@
-import React, { createContext, useReducer } from 'react';
-import { AppReducer } from './AppReducer';
+import React, { createContext, useContext, useReducer } from 'react';
+import AppReducer from './AppReducer';
+import setAuthToken from '../utils/setAuthToken';
 import axios from 'axios';
 
 // Initial State
@@ -18,7 +19,7 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Actions
-  async function register({ email, password }) {
+  async function register(email, password) {
     const config = {
       headers: {
         'Content-Type': 'application/json'
@@ -43,7 +44,7 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  async function login() {
+  async function login(email, password) {
     const config = {
       headers: {
         'Content-Type': 'application/json'
@@ -53,7 +54,9 @@ export const GlobalProvider = ({ children }) => {
     const body = JSON.stringify({ email, password });
 
     try {
-      const res = await axios.post('/api/users', body, config);
+      const res = await axios.post('/api/auth', body, config);
+
+      setAuthToken(res.data.token);
 
       dispatch({
         type: 'LOGIN_SUCCESS',
@@ -77,6 +80,8 @@ export const GlobalProvider = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
+        isAuthenticated: state.isAuthenticated,
+        user: state.user,
         loading: state.loading,
         register,
         login,
@@ -87,3 +92,5 @@ export const GlobalProvider = ({ children }) => {
     </GlobalContext.Provider>
   );
 };
+
+export const useContextValue = () => useContext(GlobalContext);
