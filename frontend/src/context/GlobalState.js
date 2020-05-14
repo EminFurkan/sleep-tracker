@@ -6,8 +6,8 @@ import axios from 'axios';
 // Initial State
 const initialState = {
   token: localStorage.getItem('token'),
-  isAuthenticated: null,
-  loading: true,
+  isAuthenticated: true,
+  loading: false,
   user: null
 };
 
@@ -17,7 +17,7 @@ export const GlobalContext = createContext(initialState);
 // Provider Component
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-
+  console.log(state);
   // Actions
   async function register(email, password) {
     const config = {
@@ -55,7 +55,7 @@ export const GlobalProvider = ({ children }) => {
 
     try {
       const res = await axios.post('/api/auth', body, config);
-
+      
       setAuthToken(res.data.token);
 
       dispatch({
