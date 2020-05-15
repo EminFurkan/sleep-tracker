@@ -17,8 +17,6 @@ export const register = (email, password) => async (dispatch) => {
 
   const body = JSON.stringify({ email, password });
 
-  console.log(body);
-
   try {
     const res = await axios.post('/api/users', body, config);
 
@@ -47,7 +45,7 @@ export const login = (email, password) => async (dispatch) => {
 
   try {
     const res = await axios.post('/api/auth', body, config);
-
+    
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data
@@ -55,6 +53,7 @@ export const login = (email, password) => async (dispatch) => {
     dispatch(loadUser());
   } catch (error) {
     console.log(error.response.data.errors);
+    console.log(error);
     dispatch({
       type: AUTH_ERROR
     });
@@ -65,6 +64,8 @@ export const login = (email, password) => async (dispatch) => {
 export const loadUser = () => async (dispatch) => {
   try {
     const res = await axios.get('/api/auth');
+    
+    console.log(res);
 
     dispatch({
       type: USER_LOADED,

@@ -34,9 +34,9 @@ export default function (state = initialState, action) {
     case USER_LOADED:
       return {
         ...state,
-        ...payload,
         isAuthenticated: true,
-        loading: false
+        loading: false,
+        user: payload
       };
     case AUTH_ERROR:
     case LOGOUT:
