@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useContextValue } from '../../context/GlobalState';
 
 export const Navbar = () => {
-  const { isAuthenticated, logout, loading } = useContextValue();
 
   return (
     <nav>
@@ -11,7 +9,7 @@ export const Navbar = () => {
         <span>
           <h2>SleepTracker</h2>
         </span>
-        {!loading && isAuthenticated ? (
+        {/* {!loading && isAuthenticated ? (
           <ul>
             <li>
               <button onClick={logout}>Logout</button>
@@ -31,7 +29,7 @@ export const Navbar = () => {
               </Link>
             </li>
           </ul>
-        )}
+        )} */}
       </div>
     </nav>
   );
