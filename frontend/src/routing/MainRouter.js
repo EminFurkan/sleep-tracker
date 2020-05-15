@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Landing } from '../components/layout/Landing';
-import { Login } from '../components/layout/Login';
+import Login from '../components/layout/Login';
 import { Dashboard } from '../components/dashboard/Dashboard';
-import { PrivateRoute } from './PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 
 export const MainRouter = () => (
   <Switch>

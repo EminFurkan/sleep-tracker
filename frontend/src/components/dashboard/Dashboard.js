@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from '../layout/Navbar';
+import Navbar from '../layout/Navbar';
 import { Header } from  './Header';
 
 export const Dashboard = () => {

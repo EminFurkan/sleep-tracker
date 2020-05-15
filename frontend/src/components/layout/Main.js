@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import illustration from '../../assets/illustration.jpg';
+import { connect } from 'react-redux';
+import { register } from '../../actions/auth';
+import PropTypes from 'prop-types';
 
-export const Main = () => {
+const Main = ({ register, isAuthenticated }) => {
   const [color, setColor] = useState();
 
-  // const onSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const { email, password } = e.target.elements;
-  //   register(email.value, password.value);
-  // };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = e.target.elements;
+    register(email.value, password.value);
+  };
 
-  // if (isAuthenticated) {
-  //   return <Redirect to="login" />
-  // }
+  if (isAuthenticated) {
+    return <Redirect to="login" />;
+  }
 
   return (
     <main className="main-content">
@@ -36,7 +39,7 @@ export const Main = () => {
           <span className={'color-' + Math.abs(color - 0)}>R</span>
         </h2>
         <p>Get a good nights sleep, and wake up happy</p>
-        <form>
+        <form onSubmit={onSubmit}>
           <input
             type="email"
             name="email"
@@ -65,3 +68,14 @@ export const Main = () => {
     </main>
   );
 };
+
+Main.propTypes = {
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { register })(Main);
