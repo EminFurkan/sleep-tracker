@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../layout/Navbar';
 import { Header } from  './Header';
+import { Calendar } from  './Calendar';
 
 export const Dashboard = () => {
   return (
@@ -9,6 +10,7 @@ export const Dashboard = () => {
       <section className="dashboard">
         <div className="dashboard__content">
           <Header />
+          <Calendar />
         </div>
       </section>
     </>

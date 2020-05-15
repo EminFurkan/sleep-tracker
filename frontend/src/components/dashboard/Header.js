@@ -6,9 +6,15 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <span className="img">
-        <img src={cam} alt="" />
-      </span>
+      <div className="header__welcome">
+        <span className="img">
+          <img src={cam} alt="" />
+        </span>
+        <span>
+        <p>Welcome!</p>
+        <p>You're on a streak of 22!</p>
+        </span>
+      </div>
       <div className="header__options">
         <div
           className={display ? 'x' : 'container'}
