@@ -11,11 +11,11 @@ export const Header = () => {
       </span>
       <div className="header__options">
         <div
-          class={display ? 'x' : 'container'}
+          className={display ? 'x' : 'container'}
           onClick={() => setDisplay(!display)}
         >
-          <div class="bar1"></div>
-          <div class="bar2"></div>
+          <div className="bar1"></div>
+          <div className="bar2"></div>
         </div>
       </div>
     </header>

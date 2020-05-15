@@ -15,7 +15,7 @@ const Main = ({ register, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to="login" />;
+    return <Redirect to="/login" />;
   }
 
   return (
