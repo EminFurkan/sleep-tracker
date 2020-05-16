@@ -703,50 +703,21 @@ nav {
   grid-template-columns: repeat(7, minmax(100px, 1fr));
   grid-template-rows: minmax(5rem, minmax);
   border-bottom: 1px solid #ddd;
-  color: #FAFAFA;
+  color: #333;
   font-size: 48px;
   @include no-select();
 
-  .item-1{
-    background-color: #581B45;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  span:first-of-type{
+    border-left: none;
   }
-  .item-2{
-    background-color: #900C3F;
+  
+  .item{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-left: 1px solid #ddd
   }
-  .item-3{
-    background-color: #C70039;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .item-4{
-    background-color: #FF5733;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .item-5{
-    background-color: #FFC30F;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .item-6{
-    background-color: #FFEEAD;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .item-7{
-    background-color: #adfeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .item.today {
+    color: $peach;
   }
 }

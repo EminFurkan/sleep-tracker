@@ -1,15 +1,22 @@
 import React from 'react';
+import { getDates, getCurrent } from '../../utils/getDates';
 
 export const Calendar = () => {
+  const today = getCurrent();
+
   return (
     <div className="calendar">
-      <span className="item-1">1</span>
-      <span className="item-2">2</span>
-      <span className="item-3">3</span>
-      <span className="item-4">4</span>
-      <span className="item-5">5</span>
-      <span className="item-6">6</span>
-      <span className="item-7">7</span>
+      {getDates().map((date) =>
+        date === today ? (
+          <span className="item today" key={date}>
+            {date}
+          </span>
+        ) : (
+          <span className="item" key={date}>
+            {date}
+          </span>
+        )
+      )}
     </div>
-  )
-}
+  );
+};
