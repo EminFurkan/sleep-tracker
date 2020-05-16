@@ -602,8 +602,10 @@ nav {
   grid-template-columns: 0.6fr 1.8fr 0.6fr;
   grid-template-rows: 1fr;
   place-items: center;
+  overflow: hidden;
 
   &__content {
+    overflow: auto;
     padding-top: 3rem;
     grid-column: 2;
     width: 100%;
@@ -718,6 +720,6 @@ nav {
     border-left: 1px solid #ddd
   }
   .item.today {
-    color: $peach;
+    color: #ddd;
   }
 }
