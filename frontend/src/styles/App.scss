@@ -29,7 +29,7 @@ body {
 //Variables
 $white: #FFFEFE;
 $red: #D53C2D;
-$yellow: #F8CE9C;
+$yellow: #F7BD7C;
 $black: #1A0405;
 $green: #428E8A;
 $dark-brown: #4A353A;
@@ -101,7 +101,7 @@ nav {
           outline: none;
 
           &:hover {
-            border-bottom: $peach 2px solid;
+            border-bottom: $yellow 2px solid;
           }
         }
       }
@@ -140,7 +140,7 @@ nav {
       position: absolute;
       left: 0;
       font-size: 64px;
-      color: $peach;
+      color: $yellow;
       animation: slidein .5s linear .5s 1 forwards;
       animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
       opacity: 0;
@@ -178,11 +178,11 @@ nav {
     }
     
     @keyframes slidein {
-      from { opacity: 0; top: 30%; }
+      from { opacity: 0; top: 32%; }
       to { opacity: 1; top: 22%; }
     }
     @keyframes slideup {
-      from { opacity: 0; top: 40%; }
+      from { opacity: 0; top: 42%; }
       to { opacity: 1; top: 32%; }
     }
 
@@ -444,7 +444,7 @@ nav {
           border-radius: inherit;
           width: 0%;
           height: 100%;
-          background-color: darken($color: $yellow, $amount: 10%);
+          background-color: $peach;
           transition: width 300ms ease 0s;
         }
 
@@ -621,7 +621,6 @@ nav {
       border-bottom: 1px solid #ddd;
 
       &__welcome {
-        background-color: $beige;
         padding: 1rem;
         display: flex;
         align-items: center;
@@ -629,14 +628,14 @@ nav {
         justify-content: center;
         width: 50%;
         height: 100%;
-        color: $white;
+        color: #333;
 
         p {
           @include no-select();
           margin: 1rem;
-        }
-        p:last-of-type::after{
-          content: " 🥳"
+          &:last-of-type::after{
+            content: " 🥳"
+          }
         }
 
         .img {
@@ -659,7 +658,6 @@ nav {
 
 
       &__options {
-        background-color: $dark-brown;
         padding: 1rem;
         height: 100%;
         width: 50%;
