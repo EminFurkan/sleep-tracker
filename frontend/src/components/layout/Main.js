@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import illustration from '../../assets/illustration.jpg';
+import illustration from '../../assets/illustrationagain2.png';
 import { connect } from 'react-redux';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
