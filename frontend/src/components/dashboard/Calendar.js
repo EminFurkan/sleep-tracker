@@ -12,7 +12,7 @@ export const Calendar = () => {
             {date}
           </span>
         ) : (
-          <span className="item" key={date}>
+          <span className="item checked" key={date}>
             {date}
           </span>
         )

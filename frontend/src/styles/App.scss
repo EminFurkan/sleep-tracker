@@ -6,7 +6,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -27,16 +29,16 @@ body {
 }
 
 //Variables
-$white: #FFFEFE;
-$red: #D53C2D;
-$yellow: #F7BD7C;
-$black: #1A0405;
-$green: #428E8A;
-$dark-brown: #4A353A;
-$beige: #D7B8A5;
-$blue: #396F92;
-$peach: #EE5966;
-$box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+$white: #fffefe;
+$red: #d53c2d;
+$yellow: #f7bd7c;
+$black: #1a0405;
+$green: #428e8a;
+$dark-brown: #4a353a;
+$beige: #d7b8a5;
+$blue: #396f92;
+$peach: #ee5966;
+$box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 
 //Mixins
 @mixin no-select {
@@ -54,7 +56,7 @@ nav {
   height: 3rem;
   color: $yellow;
   box-shadow: $box-shadow;
-  background-color: rgba(255,255,255,.2);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: saturate(180%) blur(20px);
   position: fixed;
   z-index: 100;
@@ -88,7 +90,7 @@ nav {
         }
 
         button {
-          padding: .5rem;
+          padding: 0.5rem;
           color: inherit;
           font-size: 14px;
           width: 100%;
@@ -97,7 +99,7 @@ nav {
           background-color: transparent;
           cursor: pointer;
           border-bottom: 2px solid transparent;
-          transition: border-bottom .4s ease-out;
+          transition: border-bottom 0.4s ease-out;
           outline: none;
 
           &:hover {
@@ -115,7 +117,11 @@ nav {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   height: calc(100vh);
-  background: radial-gradient(circle, rgba(21,14,50,1) 70%, rgba(0,0,0,1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(21, 14, 50, 1) 70%,
+    rgba(0, 0, 0, 1) 100%
+  );
 
   &__left {
     display: flex;
@@ -123,7 +129,7 @@ nav {
     align-items: center;
     position: relative;
 
-    img { 
+    img {
       width: 80%;
       margin-bottom: 8rem;
     }
@@ -141,7 +147,7 @@ nav {
       left: 0;
       font-size: 64px;
       color: $yellow;
-      animation: slidein .5s linear .5s 1 forwards;
+      animation: slidein 0.5s linear 0.5s 1 forwards;
       animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
       opacity: 0;
     }
@@ -170,20 +176,32 @@ nav {
       position: absolute;
       font-size: 28px;
       left: -30px;
-      font-family: 'Raleway', sans-serif;;
-      color: transparentize($color: $white, $amount: .2);
-      animation: slideup .5s linear 1s 1 forwards;
+      font-family: 'Raleway', sans-serif;
+      color: transparentize($color: $white, $amount: 0.2);
+      animation: slideup 0.5s linear 1s 1 forwards;
       opacity: 0;
       animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
     }
-    
+
     @keyframes slidein {
-      from { opacity: 0; top: 32%; }
-      to { opacity: 1; top: 22%; }
+      from {
+        opacity: 0;
+        top: 32%;
+      }
+      to {
+        opacity: 1;
+        top: 22%;
+      }
     }
     @keyframes slideup {
-      from { opacity: 0; top: 42%; }
-      to { opacity: 1; top: 32%; }
+      from {
+        opacity: 0;
+        top: 42%;
+      }
+      to {
+        opacity: 1;
+        top: 32%;
+      }
     }
 
     form {
@@ -192,24 +210,28 @@ nav {
       width: 80%;
       left: calc(100vw);
       flex-direction: column;
-      animation: slide-left .5s linear 1.3s 1 forwards;
-      animation-timing-function:cubic-bezier(0, 0.55, 0.45, 1);
+      animation: slide-left 0.5s linear 1.3s 1 forwards;
+      animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
       position: absolute;
 
       @keyframes slide-left {
-        from { right: calc(100vw); }
-        to { left: calc(-40px); }
+        from {
+          right: calc(100vw);
+        }
+        to {
+          left: calc(-40px);
+        }
       }
 
       input {
         outline: none;
         height: 2rem;
         width: 20rem;
-        margin: .5rem auto;
+        margin: 0.5rem auto;
         border-radius: 3px;
         border: none;
         font-size: 14px;
-        padding-left: .5rem;
+        padding-left: 0.5rem;
       }
 
       button {
@@ -224,7 +246,7 @@ nav {
         border: none;
         cursor: pointer;
         color: $white;
-        transition: background-color .4s ease-out;
+        transition: background-color 0.4s ease-out;
         outline: none;
 
         .btn-default {
@@ -243,11 +265,11 @@ nav {
           border-radius: inherit;
           width: 0%;
           height: 100%;
-          background-color: $peach;
+          background-color: #5ca1d7;
           transition: width 300ms ease 0s;
         }
 
-        &:hover .btn{
+        &:hover .btn {
           width: 100%;
         }
       }
@@ -258,12 +280,16 @@ nav {
 // How it works
 .how-it-works {
   height: calc(100vh);
-  color: #4894C5;
+  color: #4894c5;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #4B2F88;
-  background: radial-gradient(circle, rgba(21,14,50,1) 70%, rgba(0,0,0,1) 100%);
+  background-color: #4b2f88;
+  background: radial-gradient(
+    circle,
+    rgba(21, 14, 50, 1) 70%,
+    rgba(0, 0, 0, 1) 100%
+  );
   position: relative;
   overflow: hidden;
 
@@ -273,26 +299,25 @@ nav {
   }
 
   .plants {
-    opacity: .7;
+    opacity: 0.7;
     position: absolute;
-    left: -14%;   
+    left: -14%;
     top: 50%;
-    transform: rotate(-85deg); 
+    transform: rotate(-85deg);
   }
 
   .plants-2 {
-    opacity: .7;
+    opacity: 0.7;
     position: absolute;
     left: 75%;
     top: 50%;
-    transform: rotate(-65deg); 
+    transform: rotate(-65deg);
   }
 
   &__text {
-    
     &-animate {
       @include no-select();
-      
+
       h2 {
         position: absolute;
         top: 10%;
@@ -300,12 +325,18 @@ nav {
         font-size: 64px;
         color: $peach;
         opacity: 0;
-        animation: appear1 .7s linear 0s 1 forwards;
+        animation: appear1 0.7s linear 0s 1 forwards;
         animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  
+
         @keyframes appear1 {
-          from { opacity: 0; top: 30% }
-          to { opacity: 1; top: 10%; }
+          from {
+            opacity: 0;
+            top: 30%;
+          }
+          to {
+            opacity: 1;
+            top: 10%;
+          }
         }
       }
       ul {
@@ -318,14 +349,20 @@ nav {
         list-style-type: none;
         font-weight: 300;
         opacity: 0;
-        animation: appear linear 1s .5s 1 forwards;
+        animation: appear linear 1s 0.5s 1 forwards;
         animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-        
+
         @keyframes appear {
-          from { opacity: 0; top: 75% }
-          to { opacity: 1; top: 50%; }
+          from {
+            opacity: 0;
+            top: 75%;
+          }
+          to {
+            opacity: 1;
+            top: 50%;
+          }
         }
-  
+
         p {
           font-weight: 600;
           width: auto;
@@ -333,7 +370,7 @@ nav {
           margin-bottom: 1rem;
           color: #222;
         }
-  
+
         li {
           margin-bottom: 1rem;
           width: auto;
@@ -355,7 +392,7 @@ nav {
   justify-content: center;
   align-items: center;
   height: calc(100vh);
-  background-color: #376F92;
+  background-color: #376f92;
 
   .container {
     width: 70%;
@@ -403,16 +440,16 @@ nav {
       height: 60%;
 
       input {
-        outline:none;
+        outline: none;
         height: 2rem;
         width: 20rem;
-        margin: .5rem auto;
+        margin: 0.5rem auto;
         border-radius: 3px;
         border: 1px solid $green;
         font-size: 14px;
-        padding-left: .5rem;
+        padding-left: 0.5rem;
       }
-      
+
       button {
         width: 10rem;
         height: 2.5rem;
@@ -424,7 +461,7 @@ nav {
         border: none;
         cursor: pointer;
         color: $white;
-        transition: background-color .4s ease-out;
+        transition: background-color 0.4s ease-out;
         outline: none;
         position: relative;
 
@@ -444,14 +481,14 @@ nav {
           border-radius: inherit;
           width: 0%;
           height: 100%;
-          background-color: $peach;
+          background-color: #5ca1d7;
           transition: width 300ms ease 0s;
         }
 
-        &:hover .btn{
+        &:hover .btn {
           width: 100%;
         }
-      } 
+      }
     }
 
     footer {
@@ -496,14 +533,18 @@ nav {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    opacity: .7;
+    opacity: 0.7;
     background-color: $yellow;
-    animation: dot .8s linear 0s infinite alternate;
+    animation: dot 0.8s linear 0s infinite alternate;
     top: 51%;
 
     @keyframes dot {
-      0% { left: 45%; }
-      100% { left: 54%; }
+      0% {
+        left: 45%;
+      }
+      100% {
+        left: 54%;
+      }
     }
   }
 }
@@ -513,9 +554,9 @@ nav {
   margin: 0 auto;
   width: 8em;
   height: 6em;
-  border-radius: .05em .05em 3em 3em;
-  box-shadow: 0 0 0 .5em $yellow;
-  
+  border-radius: 0.05em 0.05em 3em 3em;
+  box-shadow: 0 0 0 0.5em $yellow;
+
   &:after {
     content: '';
     display: block;
@@ -524,11 +565,11 @@ nav {
     top: 1em;
     width: 1.5em;
     height: 2em;
-    box-shadow: 0 0 0 .5em $yellow;
-    margin-left: .5em;
+    box-shadow: 0 0 0 0.5em $yellow;
+    margin-left: 0.5em;
     border-radius: 0 50% 50% 0;
   }
-  
+
   .coffee-container {
     position: absolute;
     z-index: 10;
@@ -538,9 +579,9 @@ nav {
     height: 100%;
     overflow: hidden;
     background: $white;
-    border-radius: .05em .05em 3em 3em;
+    border-radius: 0.05em 0.05em 3em 3em;
   }
-  
+
   .coffee {
     position: absolute;
     left: 0;
@@ -549,7 +590,7 @@ nav {
     height: 100%;
     background: $dark-brown;
     animation: coffee-load 3.3s infinite;
-    
+
     &:before {
       content: '';
       display: block;
@@ -557,42 +598,42 @@ nav {
       height: 1em;
       position: absolute;
       left: -50%;
-      top: -.5em;
+      top: -0.5em;
       background: $white;
-      animation: coffee-wave .8s ease-in-out infinite;
+      animation: coffee-wave 0.8s ease-in-out infinite;
       border-radius: 50%;
     }
   }
 }
 
 @keyframes coffee-load {
-	0% {
-		transform: translateY(100%);
-	}
-	70% {
-		transform: translateY(30%);
-	}
-	90% {
-		transform: translateY(0);
-	}
-	95% {
-		transform: translateY(0);
-	}
-	100% {
-		transform: translateY(100%);
-	}
+  0% {
+    transform: translateY(100%);
+  }
+  70% {
+    transform: translateY(30%);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 
 @keyframes coffee-wave {
-	0% {
-		transform: rotate(2deg);
-	}
-	50% {
-		transform: rotate(-2deg);
+  0% {
+    transform: rotate(2deg);
   }
-	100% {
-		transform: rotate(2deg);
-	}
+  50% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
 }
 
 // Dashboard
@@ -602,10 +643,8 @@ nav {
   grid-template-columns: 0.6fr 1.8fr 0.6fr;
   grid-template-rows: 1fr;
   place-items: center;
-  overflow: hidden;
 
   &__content {
-    overflow: auto;
     padding-top: 3rem;
     grid-column: 2;
     width: 100%;
@@ -635,8 +674,8 @@ nav {
         p {
           @include no-select();
           margin: 1rem;
-          &:last-of-type::after{
-            content: " 🥳"
+          &:last-of-type::after {
+            content: ' 🥳';
           }
         }
 
@@ -648,16 +687,15 @@ nav {
           border-radius: 50%;
           width: 128px;
           height: 128px;
-          opacity: .7;
-          
+          opacity: 0.7;
+
           &:hover {
             cursor: pointer;
-            opacity: .5;
-            background-color: rgba(255,255,255,.2);
+            opacity: 0.5;
+            background-color: rgba(255, 255, 255, 0.2);
           }
         }
       }
-
 
       &__options {
         padding: 1rem;
@@ -670,23 +708,26 @@ nav {
           margin-left: auto;
           display: inline-block;
           cursor: pointer;
+          z-index: 5;
         }
-        .bar1, .bar2 {
+        .bar1,
+        .bar2 {
           width: 18px;
           height: 2px;
           background-color: #9d9d9d;
           margin: 5px 0;
-          transition: 0.4s;
+          transition: .25s cubic-bezier(.455,.03,.515,.955);
         }
 
-        .x{
+        .x {
           cursor: pointer;
           margin-left: auto;
+          z-index: 5;
           .bar1 {
             background-color: #333;
-            transform: rotate(-45deg) translate(0px,0px);
+            transform: rotate(-45deg) translate(0px, 0px);
           }
-          
+
           .bar2 {
             background-color: #333;
             transform: rotate(45deg) translate(-4.5px, -5px);
@@ -709,17 +750,41 @@ nav {
   font-size: 48px;
   @include no-select();
 
-  span:first-of-type{
+  span:first-of-type {
     border-left: none;
   }
-  
-  .item{
+
+  .item {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-left: 1px solid #ddd
+    border-left: 1px solid #ddd;
+    z-index: 1;
   }
   .item.today {
-    color: #ddd;
+    color: #16589B;
+  }
+  .item.checked::after {
+    position: absolute;
+    content: '✔';
+    z-index: 3;
+    font-size: 58px;
+    color: #6df0ae;
+    opacity: 0.5;
+  }
+}
+
+// Schedule
+.schedule {
+  background-color: #ddd;
+  width: 415px;
+  height: 240px;
+  position: absolute;
+  z-index: 3;
+  top: calc(-3rem - 240px) !important;
+  transition: top .25s cubic-bezier(.4,0,.2,1);
+
+  &.display {
+    top: 3rem !important;
   }
 }

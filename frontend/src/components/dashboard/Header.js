@@ -11,8 +11,7 @@ export const Header = () => {
           <img src={cam} alt="" />
         </span>
         <span>
-        <p>Welcome!</p>
-        <p>You're on a streak of 22!</p>
+          <p>You're on a streak of 22!</p>
         </span>
       </div>
       <div className="header__options">
@@ -23,6 +22,7 @@ export const Header = () => {
           <div className="bar1"></div>
           <div className="bar2"></div>
         </div>
+        <span className={display ? 'schedule display' : 'schedule'}>test</span>
       </div>
     </header>
   );
