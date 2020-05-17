@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { setAlert } from './alert';
 import {
   REGISTER_SUCCESS,
   LOGIN_SUCCESS,
@@ -24,8 +25,13 @@ export const register = (email, password) => async (dispatch) => {
       type: REGISTER_SUCCESS,
       payload: res.data
     });
+    dispatch(loadUser());
   } catch (error) {
-    console.log(error.response.data.errors);
+    const errors = error.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg)));
+    }
 
     dispatch({
       type: AUTH_ERROR
@@ -52,7 +58,12 @@ export const login = (email, password) => async (dispatch) => {
     });
     dispatch(loadUser());
   } catch (error) {
-    console.log(error.response.data.errors);
+    const errors = error.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg)));
+    }
+
     dispatch({
       type: AUTH_ERROR
     });
@@ -69,7 +80,6 @@ export const loadUser = () => async (dispatch) => {
       payload: res.data
     });
   } catch (error) {
-    console.log(error.response.data.errors);
     dispatch({
       type: AUTH_ERROR
     });

@@ -716,7 +716,7 @@ nav {
           height: 2px;
           background-color: #9d9d9d;
           margin: 5px 0;
-          transition: .25s cubic-bezier(.455,.03,.515,.955);
+          transition: 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
         }
 
         .x {
@@ -762,7 +762,7 @@ nav {
     z-index: 1;
   }
   .item.today {
-    color: #16589B;
+    color: #16589b;
   }
   .item.checked::after {
     position: absolute;
@@ -774,6 +774,7 @@ nav {
   }
 }
 
+
 // Schedule
 .schedule {
   background-color: #ddd;
@@ -782,9 +783,62 @@ nav {
   position: absolute;
   z-index: 3;
   top: calc(-3rem - 240px) !important;
-  transition: top .25s cubic-bezier(.4,0,.2,1);
+  transition: top 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    background-image: pink;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><circle cx='20' cy='20' r='18.5' fill='none' stroke='%23222' stroke-width='3' /><path d='M20,4 20,8 M4,20 8,20 M36,20 32,20 M20,36 20,32' stroke='%23bbb' stroke-width='1' /><circle cx='20' cy='20' r='2' fill='%23222' stroke='%23222' stroke-width='2' /></svg>"),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M18.5,24.5 19.5,4 20.5,4 21.5,24.5 Z' fill='%23222' style='transform:rotate(120deg); transform-origin: 50% 50%;' /></svg>"),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M18.5,24.5 19.5,8.5 20.5,8.5 21.5,24.5 Z' style='transform:rotate(20deg); transform-origin: 50% 50%;' /></svg>");
+    background-position: calc(3rem * .25) 50%;
+    background-repeat: no-repeat;
+    background-size: 3rem 3rem;
+    border: calc(3rem * .125);
+    border-radius: calc(3rem * .5);
+    color: #222;
+    font-size: 3rem;
+    padding: calc(3rem * .25) calc(3rem * .25) calc(3rem * .25) calc(3rem + calc(3rem * .5));
+    transition: 0.25s;
+    outline: none;
+  }
+
 
   &.display {
     top: 3rem !important;
+  }
+}
+
+// Alert
+.alert {
+  @include no-select();
+  width: 250px;
+  height: 50px;
+  display: flex;
+  font-size: 14px;
+  line-height: 1.2;
+  padding: 0 .5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: $yellow;
+  border-radius: 3px;
+  position: absolute;
+  left: calc(120vw);
+  top: 5rem;
+  color: #333;
+  font-weight: 600;
+  box-shadow: $box-shadow;
+  animation: slide-left-alert 0.6s linear 1 forwards;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes slide-left-alert {
+    from {
+      left: calc(120vw);
+    }
+    to {
+      left: calc(77.5vw);
+    }
   }
 }
