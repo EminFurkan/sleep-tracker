@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from '../layout/Navbar';
-import { Header } from  './Header';
-import { Calendar } from  './Calendar';
-import { Report } from  './Report';
+import Header from './Header';
+import { Calendar } from './Calendar';
+import { Report } from './Report';
 
 export const Dashboard = () => {
   return (

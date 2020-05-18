@@ -79,9 +79,7 @@ router.get('/me', auth, async (req, res) => {
     }).populate('user', ['image', 'routine']);
 
     if (!user) {
-      return res
-        .status(400)
-        .json({ msg: 'There is no data for this user.' });
+      return res.status(400).json({ msg: 'There is no data for this user.' });
     }
 
     res.json(user);
@@ -92,3 +90,28 @@ router.get('/me', auth, async (req, res) => {
 });
 
 module.exports = router;
+
+// @route   PUT api/users/me
+// @desc    Create or update routine
+// @access  Private
+router.put('/me', auth, async (req, res) => {
+  const { time, string } = req.body;
+  const routine = {
+    time,
+    string
+  };
+
+  try {
+    const user = await User.findOneAndUpdate(
+      { _id: req.user.id },
+      { $set: { routine } },
+      { new: true, upsert: true }
+    );
+
+    await user.save();
+    res.json(user.routine);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});

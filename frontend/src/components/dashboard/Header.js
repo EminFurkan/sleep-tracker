@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
 import cam from '../../assets/cam.png';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setRoutine } from '../../actions/routine';
 
-export const Header = () => {
+const Header = ({ setRoutine }) => {
   const [display, setDisplay] = useState(false);
   const [time, setTime] = useState();
+
+  const handleClick = () => {
+    let routine;
+    if (time) {
+      setRoutine(routine = {
+        time: time,
+        string: `Your routine is set to ${time}`
+      });
+    }
+  };
 
   let min;
   let hr;
@@ -53,7 +66,7 @@ export const Header = () => {
             pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}"
             onChange={(e) => setTime(e.target.value)}
           />
-          <button>
+          <button onClick={handleClick}>
             <span className="btn-default">Set Routine</span>
             <span className="btn"></span>
           </button>
@@ -62,3 +75,13 @@ export const Header = () => {
     </header>
   );
 };
+
+const mapStateToProps = (state) => ({
+  routine: state.routine
+});
+
+Header.propTypes = {
+  setRoutine: PropTypes.func.isRequired
+};
+
+export default connect(mapStateToProps, { setRoutine })(Header);
