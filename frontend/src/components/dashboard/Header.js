@@ -10,7 +10,7 @@ export const Header = () => {
 
   if (time) {
     min = Number(time.substring(3, 5)) * 6;
-    hr = Number(time.substring(0, 2)) * 30 + (min / 12);
+    hr = Number(time.substring(0, 2)) * 30 + min / 12;
   }
 
   return (

@@ -5,8 +5,6 @@ import {
   VictoryChart,
   VictoryTooltip,
   VictoryLabel,
-  VictoryAxis,
-  VictoryBar
 } from 'victory';
 
 export const Report = () => {
@@ -61,27 +59,6 @@ export const Report = () => {
           y={190}
           angle={270}
           text={'streak'}
-        />
-      </VictoryChart>
-      <VictoryChart
-        theme={VictoryTheme.material}
-        domainPadding={10}
-        height={300}
-        width={450}
-      >
-        <VictoryAxis />
-        <VictoryBar
-          categories={{
-            x: monthStrings
-          }}
-          style={{
-            data: { fill: '#69f0ae', width: 20 },
-            labels: { fill: '#01579b' }
-          }}
-          data={plot}
-          x={monthStrings['x']}
-          domain={{ x: [0, 13] }}
-          labels={({ datum }) => `${datum.y}`}
         />
       </VictoryChart>
     </>
