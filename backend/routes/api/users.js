@@ -76,12 +76,12 @@ router.get('/me', auth, async (req, res) => {
   try {
     const user = await User.findOne({
       user: req.user.id
-    }).populate('user', ['image', 'time_span']);
+    }).populate('user', ['image', 'routine']);
 
     if (!user) {
       return res
         .status(400)
-        .json({ msg: 'There is no profile for this user.' });
+        .json({ msg: 'There is no data for this user.' });
     }
 
     res.json(user);

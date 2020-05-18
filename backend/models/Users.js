@@ -17,9 +17,8 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now()
   },
-  time_span: {
-    start: Number,
-    end: Number,
+  routine: {
+    time: String,
     string: String
   }
 });
