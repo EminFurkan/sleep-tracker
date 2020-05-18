@@ -12,7 +12,7 @@ export const setRoutine = (routine) => async (dispatch) => {
       payload: res.data
     });
 
-    dispatch(setAlert(res.data.string));
+    dispatch(setAlert(res.data.string, 'success'));
   } catch (error) {
     const errors = error.response.data.errors;
 

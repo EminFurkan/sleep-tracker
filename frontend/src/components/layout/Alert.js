@@ -6,7 +6,7 @@ const Alert = ({ alerts }) =>
   alerts !== null &&
   alerts.length > 0 &&
   alerts.map((alert) => (
-    <span className="alert" key={alert.id}>
+    <span className={`alert ${alert.type}`} key={alert.id}>
       <p>{alert.msg}</p>
     </span>
   ));
