@@ -11,10 +11,12 @@ const Header = ({ setRoutine }) => {
   const handleClick = () => {
     let routine;
     if (time) {
-      setRoutine(routine = {
-        time: time,
-        string: `Your routine is set to ${time}`
-      });
+      setRoutine(
+        (routine = {
+          time: time,
+          string: `Your routine is set to ${time}`
+        })
+      );
     }
   };
 
@@ -77,7 +79,7 @@ const Header = ({ setRoutine }) => {
 };
 
 const mapStateToProps = (state) => ({
-  routine: state.routine
+  auth: state.auth.user
 });
 
 Header.propTypes = {

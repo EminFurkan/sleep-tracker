@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getDates, getCurrent } from '../../utils/getDates';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getEvents } from '../../actions/event';
 
-export const Calendar = () => {
+const Calendar = ({ getEvents, event }) => {
   const today = getCurrent();
+
+  useEffect(() => {
+    getEvents();
+  }, [getEvents]);
+
+  console.log(event);
 
   return (
     <div className="calendar">
@@ -20,3 +29,14 @@ export const Calendar = () => {
     </div>
   );
 };
+
+Calendar.propTypes = {
+  getEvents: PropTypes.func.isRequired,
+  event: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  event: state.events
+});
+
+export default connect(mapStateToProps, { getEvents })(Calendar);

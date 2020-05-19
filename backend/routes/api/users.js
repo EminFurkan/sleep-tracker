@@ -89,8 +89,6 @@ router.get('/me', auth, async (req, res) => {
   }
 });
 
-module.exports = router;
-
 // @route   PUT api/users/me
 // @desc    Create or update routine
 // @access  Private
@@ -115,3 +113,5 @@ router.put('/me', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+module.exports = router;
