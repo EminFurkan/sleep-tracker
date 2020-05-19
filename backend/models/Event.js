@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const EventSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'user'
   },
   is_checked: {
     type: Boolean
