@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getEvents } from '../../actions/event';
 
-const Calendar = ({ getEvents, event }) => {
+const Calendar = ({ getEvents, event: { events } }) => {
   const today = getCurrent();
+
+  console.log(events);
 
   useEffect(() => {
     getEvents();
   }, [getEvents]);
-
-  console.log(event);
 
   return (
     <div className="calendar">
@@ -30,13 +30,13 @@ const Calendar = ({ getEvents, event }) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  event: state.event
+});
+
 Calendar.propTypes = {
   getEvents: PropTypes.func.isRequired,
   event: PropTypes.object.isRequired
 };
-
-const mapStateToProps = (state) => ({
-  event: state.events
-});
 
 export default connect(mapStateToProps, { getEvents })(Calendar);

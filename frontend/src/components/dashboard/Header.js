@@ -79,7 +79,7 @@ const Header = ({ setRoutine }) => {
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth.user
+  routine: state.auth.routine
 });
 
 Header.propTypes = {
