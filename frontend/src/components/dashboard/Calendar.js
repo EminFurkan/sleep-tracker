@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { getDates, getCurrent } from '../../utils/getDates';
+import { useDates } from '../../hooks';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getEvents } from '../../actions/event';
 
 const Calendar = ({ getEvents, event: { events } }) => {
-  const today = getCurrent();
+  const { getWeek, getToday } = useDates();
+  const today = getToday();
 
   console.log(events);
 
@@ -15,7 +16,7 @@ const Calendar = ({ getEvents, event: { events } }) => {
 
   return (
     <div className="calendar">
-      {getDates().map((date) =>
+      {getWeek().map((date) =>
         date === today ? (
           <span className="item today" key={date}>
             {date}
