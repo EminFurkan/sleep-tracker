@@ -28,7 +28,7 @@ router.post('/', auth, async (req, res) => {
 // access   Private
 router.get('/', auth, async (req, res) => {
   try {
-    const events = await Event.find().populate('user');
+    const events = await Event.find({ user: req.user.id });
 
     res.json(events);
   } catch (err) {
