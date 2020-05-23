@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import { getEvents } from '../../actions/event';
 
 const Calendar = ({ getEvents, event: { events } }) => {
-  const { getWeek, getToday } = useDates();
+  const { getWeek, getToday, findCheckedDates } = useDates();
   const today = getToday();
 
-  console.log(events);
+  const checked = findCheckedDates(events);
 
   useEffect(() => {
     getEvents();
@@ -21,8 +21,12 @@ const Calendar = ({ getEvents, event: { events } }) => {
           <span className="item today" key={date}>
             {date}
           </span>
-        ) : (
+        ) : checked.includes(date) ? (
           <span className="item checked" key={date}>
+            {date}
+          </span>
+        ) : (
+          <span className="item" key={date}>
             {date}
           </span>
         )
