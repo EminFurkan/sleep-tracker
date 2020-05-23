@@ -265,7 +265,7 @@ nav {
           border-radius: inherit;
           width: 0%;
           height: 100%;
-          background-color: #5ca1d7;
+          background-color: darken($color: $yellow, $amount: 10%);
           transition: width 300ms ease 0s;
         }
 
@@ -481,7 +481,7 @@ nav {
           border-radius: inherit;
           width: 0%;
           height: 100%;
-          background-color: #5ca1d7;
+          background-color: darken($color: $yellow, $amount: 10%);
           transition: width 300ms ease 0s;
         }
 
@@ -839,7 +839,7 @@ nav {
     font-size: 3rem;
     padding: calc(3rem * 0.25) calc(3rem * 0.25) calc(3rem * 0.25)
       calc(3rem + calc(3rem * 0.5));
-    transition: 0.25s;
+    // transition: 0.25s;
     outline: none;
   }
 

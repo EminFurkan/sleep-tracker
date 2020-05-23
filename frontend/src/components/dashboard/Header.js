@@ -4,19 +4,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setRoutine } from '../../actions/routine';
 
-const Header = ({
-  setRoutine,
-  auth: {
-    loading,
-    user: { routine }
-  }
-}) => {
+const Header = ({ setRoutine, auth: { loading, user } }) => {
   const [display, setDisplay] = useState(false);
   const [time, setTime] = useState();
 
   const handleClick = () => {
     let routine;
-    if (time) {
+    if (time && user !== null && time !== user.routine.time) {
       setRoutine(
         (routine = {
           time: time,
@@ -73,7 +67,7 @@ const Header = ({
             name="time"
             pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}"
             onChange={(e) => setTime(e.target.value)}
-            defaultValue={!loading && routine.time}
+            defaultValue={!loading && user !== null && user.routine.time}
           />
           <button onClick={handleClick}>
             <span className="btn-default">Set Routine</span>
