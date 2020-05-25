@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../layout/Navbar';
 import Header from './Header';
 import { Report } from './Report';
+import Month from './Month';
 
 export const Dashboard = () => {
   return (
@@ -13,7 +14,7 @@ export const Dashboard = () => {
           <div className="overview">
             <Report />
             <span className="overview__2">
-              test
+              <Month />
             </span>
             <span className="overview__3">
 

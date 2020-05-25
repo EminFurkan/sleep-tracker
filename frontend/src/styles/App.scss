@@ -974,6 +974,10 @@ nav {
   &__2 {
     border-radius: 30px;
     border: 3px solid #00d0cd;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
   }
 
   &__3 {
@@ -982,3 +986,57 @@ nav {
   }
 }
 
+.month {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__title {
+    @include no-select();
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  &__day-tags {
+    @include no-select();
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    li {
+      margin: 1rem;
+    }
+  }
+
+  &__days {
+    @include no-select();
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-start: 2;
+    justify-items: center;
+    align-items: center;
+
+    .remainer{
+      background-color: #f4f89c;
+    }
+    .today {
+      background-color: #ce9cf8;
+    }
+    .checked {
+      background-color: #9cf8ce;
+    }
+
+    span {
+      background-color: #ee5966;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
