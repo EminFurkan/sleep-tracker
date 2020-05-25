@@ -20,7 +20,7 @@ body {
   line-height: 1;
   font-family: 'Roboto', sans-serif;
   color: #202020;
-  background-color: #fafafa;
+  background-color: #F3F3F3;
   font-smooth: always;
   -webkit-font-smoothing: antialised;
   -mos-osx-font-smoothing: grayscale;
@@ -639,41 +639,38 @@ nav {
 // Dashboard
 .dashboard {
   height: calc(100vh);
-  display: grid;
-  grid-template-columns: 0.6fr 1.8fr 0.6fr;
-  grid-template-rows: 1fr;
-  place-items: center;
 
   &__content {
-    padding-top: 3rem;
-    grid-column: 2;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid #ddd;
-    border-left: 1px solid #ddd;
 
     .header {
+      padding-top: 3rem;
       display: flex;
-      height: 17rem;
+      height: 18rem;
       width: 100%;
-      border-bottom: 1px solid #ddd;
+      position: relative;
 
-      &__welcome {
-        padding: 1rem;
+      &__profile {
         display: flex;
         align-items: center;
-        padding-left: 2rem;
         justify-content: center;
-        width: 50%;
+        width: 25%;
         height: 100%;
-        color: #333;
+        color: #252C3B;
+        border-bottom: 3px solid #3734A9;
+        background-color: #f3f3f3;
 
         p {
           @include no-select();
+          font-size: 18px;
+          font-weight: 600;
+          letter-spacing: 1px;
           margin: 1rem;
+
           &:last-of-type::after {
             content: ' 🥳';
           }
@@ -683,10 +680,11 @@ nav {
           display: flex;
           justify-content: center;
           align-items: center;
+          flex-direction: column;
           border: 1px solid #ddd;
           border-radius: 50%;
-          width: 128px;
-          height: 128px;
+          width: 120px;
+          height: 120px;
           opacity: 0.7;
 
           &:hover {
@@ -698,9 +696,10 @@ nav {
       }
 
       &__options {
-        padding: 1rem;
+        padding-top: 1rem;
+        padding-right: 1rem;
         height: 100%;
-        width: 50%;
+        width: 25%;
         display: flex;
         flex-direction: column;
 
@@ -724,12 +723,12 @@ nav {
           margin-left: auto;
           z-index: 5;
           .bar1 {
-            background-color: #333;
+            background-color: #EF7088;;
             transform: rotate(-45deg) translate(0px, 0px);
           }
 
           .bar2 {
-            background-color: #333;
+            background-color: #EF7088;
             transform: rotate(45deg) translate(-4.5px, -5px);
           }
         }
@@ -740,40 +739,44 @@ nav {
 
 // Calendar
 .calendar {
-  width: 100%;
-  height: 5rem;
-  display: grid;
-  grid-template-columns: repeat(7, minmax(100px, 1fr));
-  grid-template-rows: minmax(5rem, minmax);
-  border-bottom: 1px solid #ddd;
-  color: #333;
-  font-size: 48px;
   @include no-select();
-
-  span:first-of-type {
-    border-left: none;
-  }
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom-right-radius: 50px;
+  border-right: 3px solid #3734A9;
+  border-bottom: 3px solid #3734A9;
+  z-index: 20;
+  background-color: #f3f3f3;
 
   .item {
+    font-size: 36px;
+    width: 62px;
+    height: 62px;
+    padding: .5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-left: 1px solid #ddd;
-    z-index: 1;
     position: relative;
-  }
-  .item.today {
-    color: #16589b;
-  }
-  .item.checked::after {
-    position: absolute;
-    content: '✔';
-    z-index: 3;
-    font-size: 28px;
-    color: #6df0ae;
-    left: 80%;
-    top: 0%;
-    opacity: 0.5;
+    color: #f3f3f3;
+    border-radius: 50%;
+    background-color: #B5B4B9;
+    border: 1px solid #B5B4B9;
+    border-width: 5px;
+
+    &.checked {
+      color: #f7fdfd;
+      background-color: #00d0cd;
+      border: 1px solid #227BD8;
+      border-width: 5px;
+    }
+
+    &.today {
+      background-color: #222;
+      border: 1px solid #EF7088;
+      border-width: 5px;
+    }
   }
 }
 
@@ -816,18 +819,20 @@ nav {
 
 // Schedule
 .schedule {
-  background-color: #f7f7f7;
-  border-left: 1px solid #ddd;
-  width: 415px;
-  height: 271px;
+  left: 71.5%;
+  background-color: #3734A9;
+  width: 420px;
+  height: 240px;
   position: absolute;
   z-index: 3;
-  top: calc(-3rem - 271px) !important;
+  top: calc(-3rem - 240px) !important;
   transition: top 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 1.5rem;
+  padding-left: 3rem;
 
   input {
     background-position: calc(3rem * 0.25) 50%;
@@ -839,14 +844,13 @@ nav {
     font-size: 3rem;
     padding: calc(3rem * 0.25) calc(3rem * 0.25) calc(3rem * 0.25)
       calc(3rem + calc(3rem * 0.5));
-    // transition: 0.25s;
     outline: none;
   }
 
   .clock {
     position: absolute;
-    left: 105px;
-    top: 128px;
+    left: 120px;
+    top: 76px;
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -902,7 +906,7 @@ nav {
     border-radius: 3px;
     font-size: 14px;
     font-weight: 500;
-    background-color: #333;
+    background-color: #60E2F0;
     border: none;
     cursor: pointer;
     color: $white;
@@ -925,7 +929,7 @@ nav {
       border-radius: inherit;
       width: 0%;
       height: 100%;
-      background-color: #111;
+      background-color: darken($color: #60E2F0, $amount: 20%);
       transition: width 300ms ease 0s;
     }
 
@@ -951,3 +955,30 @@ nav {
     top: 3rem !important;
   }
 }
+
+// Overview
+.overview {
+  margin: auto;
+  padding: 0 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+
+  .report {
+    padding-top: 4rem;
+    height: 25rem;
+    border-radius: 30px;
+    border: 3px solid #EF7088;
+  }
+
+  &__2 {
+    border-radius: 30px;
+    border: 3px solid #00d0cd;
+  }
+
+  &__3 {
+    border-radius: 30px;
+    border: 3px solid #333;
+  }
+}
+

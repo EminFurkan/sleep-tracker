@@ -3,6 +3,7 @@ import cam from '../../assets/cam.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setRoutine } from '../../actions/routine';
+import Calendar from './Calendar';
 
 const Header = ({ setRoutine, auth: { loading, user } }) => {
   const [display, setDisplay] = useState(false);
@@ -30,14 +31,15 @@ const Header = ({ setRoutine, auth: { loading, user } }) => {
 
   return (
     <header className="header">
-      <div className="header__welcome">
+      <div className="header__profile">
         <span className="img">
           <img src={cam} alt="" />
         </span>
         <span>
-          <p>You're on a streak of 22!</p>
+          <p>Hello {user !== null && user.email.split('@')[0]}!</p>
         </span>
       </div>
+      <Calendar />
       <div className="header__options">
         <div
           className={display ? 'x' : 'container'}
@@ -47,10 +49,6 @@ const Header = ({ setRoutine, auth: { loading, user } }) => {
           <div className="bar2"></div>
         </div>
         <span className={display ? 'schedule display' : 'schedule'}>
-          <p>
-            Once you set a routine, you will have the chance to confirm you're
-            awake within ∓15 minute range of your preferred goal
-          </p>
           <div className="clock">
             <span
               className="h-hand"

@@ -1,8 +1,7 @@
 import React from 'react';
 import Navbar from '../layout/Navbar';
 import Header from './Header';
-import Calendar from './Calendar';
-// import { Report } from './Report';
+import { Report } from './Report';
 
 export const Dashboard = () => {
   return (
@@ -11,8 +10,15 @@ export const Dashboard = () => {
       <section className="dashboard">
         <div className="dashboard__content">
           <Header />
-          <Calendar />
-          {/* <Report /> */}
+          <div className="overview">
+            <Report />
+            <span className="overview__2">
+              test
+            </span>
+            <span className="overview__3">
+
+            </span>
+          </div>
         </div>
       </section>
     </>
