@@ -1,4 +1,10 @@
-import { format, startOfWeek, endOfWeek, startOfMonth, endOfMonth } from 'date-fns';
+import {
+  format,
+  startOfWeek,
+  endOfWeek,
+  startOfMonth,
+  endOfMonth
+} from 'date-fns';
 
 export const useDates = () => {
   const getWeek = () => {
@@ -17,13 +23,28 @@ export const useDates = () => {
     return Number(today);
   };
 
-  const findCheckedDates = (dates) => {
+  const findCheckedDates = (dates, timespan) => {
     const userStreak = dates.map(({ date }) => new Date(date).getDate());
     const checkedDates = userStreak.filter((date) =>
-      getWeek().includes(date)
+      timespan === 'week'
+        ? getWeek().includes(date)
+        : timespan === 'month'
+        ? getMonth().includes(date)
+        : null
     );
     return checkedDates;
   };
 
-  return { getWeek, getToday, findCheckedDates };
+  const getMonth = () => {
+    const start = format(startOfMonth(new Date()), 'dd');
+    const end = format(endOfMonth(new Date()), 'dd');
+    const currentMonth = [];
+
+    for (let i = Number(start); i <= end; i++) {
+      currentMonth.push(i);
+    }
+    return currentMonth;
+  };
+
+  return { getMonth, getWeek, getToday, findCheckedDates };
 };

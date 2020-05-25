@@ -8,7 +8,7 @@ const Calendar = ({ getEvents, event: { events } }) => {
   const { getWeek, getToday, findCheckedDates } = useDates();
   const today = getToday();
 
-  const checked = findCheckedDates(events);
+  const checked = findCheckedDates(events, 'week');
 
   useEffect(() => {
     getEvents();
