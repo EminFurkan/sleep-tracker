@@ -1,14 +1,14 @@
 import React from 'react';
 import { VictoryChart, VictoryLine } from 'victory';
 
-export const Report = () => {
+export const MonthlyReport = () => {
   return (
-    <section className="report">
+    <section className="monthly-report">
       <VictoryChart>
         <VictoryLine
           interpolation="natural"
           style={{
-            data: { stroke: '#333' },
+            data: { stroke: '#227BD8' },
             parent: { border: '4px solid #F07250' }
           }}
           data={[

@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from '../layout/Navbar';
 import Header from './Header';
-import { Report } from './Report';
+import { MonthlyReport } from './MonthlyReport';
 import Month from './Month';
+import { YearlyReport } from './YearlyReport';
 
 export const Dashboard = () => {
   return (
@@ -12,13 +13,11 @@ export const Dashboard = () => {
         <div className="dashboard__content">
           <Header />
           <div className="overview">
-            <Report />
+            <MonthlyReport />
             <span className="overview__2">
               <Month />
             </span>
-            <span className="overview__3">
-
-            </span>
+            <YearlyReport />
           </div>
         </div>
       </section>

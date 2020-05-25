@@ -20,7 +20,7 @@ body {
   line-height: 1;
   font-family: 'Roboto', sans-serif;
   color: #202020;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   font-smooth: always;
   -webkit-font-smoothing: antialised;
   -mos-osx-font-smoothing: grayscale;
@@ -660,8 +660,8 @@ nav {
         justify-content: center;
         width: 25%;
         height: 100%;
-        color: #252C3B;
-        border-bottom: 3px solid #3734A9;
+        color: #252c3b;
+        border-bottom: 3px solid #3734a9;
         background-color: #f3f3f3;
 
         p {
@@ -723,12 +723,12 @@ nav {
           margin-left: auto;
           z-index: 5;
           .bar1 {
-            background-color: #EF7088;;
+            background-color: #ef7088;
             transform: rotate(-45deg) translate(0px, 0px);
           }
 
           .bar2 {
-            background-color: #EF7088;
+            background-color: #ef7088;
             transform: rotate(45deg) translate(-4.5px, -5px);
           }
         }
@@ -745,8 +745,8 @@ nav {
   justify-content: space-evenly;
   align-items: center;
   border-bottom-right-radius: 50px;
-  border-right: 3px solid #3734A9;
-  border-bottom: 3px solid #3734A9;
+  border-right: 3px solid #3734a9;
+  border-bottom: 3px solid #3734a9;
   z-index: 20;
   background-color: #f3f3f3;
 
@@ -754,27 +754,27 @@ nav {
     font-size: 36px;
     width: 62px;
     height: 62px;
-    padding: .5rem;
+    padding: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     color: #f3f3f3;
     border-radius: 50%;
-    background-color: #B5B4B9;
-    border: 1px solid #B5B4B9;
+    background-color: #b5b4b9;
+    border: 1px solid #b5b4b9;
     border-width: 5px;
 
     &.checked {
       color: #f7fdfd;
       background-color: #00d0cd;
-      border: 1px solid #227BD8;
+      border: 1px solid #227bd8;
       border-width: 5px;
     }
 
     &.today {
-      background-color: #222;
-      border: 1px solid #EF7088;
+      background-color: #ef7088;
+      border: 1px solid #3734a9;
       border-width: 5px;
     }
   }
@@ -820,7 +820,7 @@ nav {
 // Schedule
 .schedule {
   left: 71.5%;
-  background-color: #3734A9;
+  background-color: #3734a9;
   width: 420px;
   height: 240px;
   position: absolute;
@@ -889,7 +889,7 @@ nav {
       position: absolute;
       width: 4px;
       height: 4px;
-      background-color: #6DF0AE;
+      background-color: #6df0ae;
       bottom: 45%;
       left: 50%;
       z-index: 50;
@@ -906,7 +906,7 @@ nav {
     border-radius: 3px;
     font-size: 14px;
     font-weight: 500;
-    background-color: #60E2F0;
+    background-color: #60e2f0;
     border: none;
     cursor: pointer;
     color: $white;
@@ -929,7 +929,7 @@ nav {
       border-radius: inherit;
       width: 0%;
       height: 100%;
-      background-color: darken($color: #60E2F0, $amount: 20%);
+      background-color: darken($color: #60e2f0, $amount: 20%);
       transition: width 300ms ease 0s;
     }
 
@@ -964,25 +964,27 @@ nav {
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
 
-  .report {
+  .monthly-report {
     padding-top: 4rem;
     height: 25rem;
     border-radius: 30px;
-    border: 3px solid #EF7088;
+    border: 3px solid #ef7088;
   }
 
   &__2 {
     border-radius: 30px;
-    border: 3px solid #00d0cd;
+    border: 3px solid #9cc6f8;
     display: flex;
     justify-content: center;
     align-content: center;
     padding: 1rem;
   }
 
-  &__3 {
+  .yearly-report {
+    padding-top: 4rem;
+    height: 25rem;
     border-radius: 30px;
-    border: 3px solid #60E2F0;
+    border: 3px solid #ce9cf8;
   }
 }
 
@@ -1019,18 +1021,21 @@ nav {
     justify-items: center;
     align-items: center;
 
-    .remainer{
-      background-color: #f4f89c;
+    .remainer {
+      background-color: transparent;
+      color: #B6B6B6;
     }
     .today {
-      background-color: #ce9cf8;
+      background-color: #ef7088;
+      border: 3px solid #3734a9;
     }
     .checked {
       background-color: #9cf8ce;
+      border: 3px solid #00d0cd;
     }
 
     span {
-      background-color: #ee5966;
+      background-color: #ddd;
       border-radius: 50%;
       width: 2rem;
       height: 2rem;
