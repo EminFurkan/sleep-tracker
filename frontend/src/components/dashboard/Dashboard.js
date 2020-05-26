@@ -4,6 +4,7 @@ import Header from './Header';
 import { MonthlyReport } from './MonthlyReport';
 import Month from './Month';
 import { YearlyReport } from './YearlyReport';
+import Confirmation from './Confirmation';
 
 export const Dashboard = () => {
   return (
@@ -20,6 +21,7 @@ export const Dashboard = () => {
             <YearlyReport />
           </div>
         </div>
+      <Confirmation />
       </section>
     </>
   );

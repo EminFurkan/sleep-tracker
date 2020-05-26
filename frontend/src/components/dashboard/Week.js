@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getEvents } from '../../actions/event';
 
-const Calendar = ({ getEvents, event: { events } }) => {
+const Week = ({ getEvents, event: { events } }) => {
   const { getWeek, getToday, findCheckedDates } = useDates();
   const today = getToday();
 
@@ -39,9 +39,9 @@ const mapStateToProps = (state) => ({
   event: state.event
 });
 
-Calendar.propTypes = {
+Week.propTypes = {
   getEvents: PropTypes.func.isRequired,
   event: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, { getEvents })(Calendar);
+export default connect(mapStateToProps, { getEvents })(Week);

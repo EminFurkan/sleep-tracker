@@ -3,7 +3,7 @@ import cam from '../../assets/cam.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setRoutine } from '../../actions/routine';
-import Calendar from './Calendar';
+import Week from './Week';
 
 const Header = ({ setRoutine, auth: { loading, user } }) => {
   const [display, setDisplay] = useState(false);
@@ -33,11 +33,11 @@ const Header = ({ setRoutine, auth: { loading, user } }) => {
     <header className="header">
       <div className="header__profile">
         <span>
-          <p>Hello {user !== null && user.email.split('@')[0]}!</p>
-          <p>You're on a streak of 22!</p>
+          <p>Hello {user !== null && user.email.split('@')[0]},</p>
+          <p>You're on a streak of 25!</p>
         </span>
       </div>
-      <Calendar />
+      <Week />
       <div className="header__options">
         <div
           className={display ? 'x' : 'container'}
@@ -63,7 +63,9 @@ const Header = ({ setRoutine, auth: { loading, user } }) => {
             name="time"
             pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}"
             onChange={(e) => setTime(e.target.value)}
-            defaultValue={!loading && user !== null && user.routine.time}
+            defaultValue={
+              !loading && user !== null && user.routine && user.routine.time
+            }
           />
           <button onClick={handleClick}>
             <span className="btn-default">Set Routine</span>
