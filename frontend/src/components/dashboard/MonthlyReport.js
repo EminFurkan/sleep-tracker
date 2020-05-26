@@ -4,6 +4,7 @@ import { VictoryChart, VictoryLine } from 'victory';
 export const MonthlyReport = () => {
   return (
     <section className="monthly-report">
+      <p>Montly Progress</p>
       <VictoryChart>
         <VictoryLine
           interpolation="natural"

@@ -32,11 +32,9 @@ const Header = ({ setRoutine, auth: { loading, user } }) => {
   return (
     <header className="header">
       <div className="header__profile">
-        <span className="img">
-          <img src={cam} alt="" />
-        </span>
         <span>
           <p>Hello {user !== null && user.email.split('@')[0]}!</p>
+          <p>You're on a streak of 22!</p>
         </span>
       </div>
       <Calendar />
