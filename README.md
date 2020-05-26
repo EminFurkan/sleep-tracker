@@ -9,7 +9,7 @@ the app will track your data to keep you motivated.<br /><br />
 SleepTracker is a fullstack app built with MERN stack, using Redux for state management. <br />
 
 ## Preview
-![dashboard](https://user-images.githubusercontent.com/50910926/82912203-76b84800-9f75-11ea-8be9-1581fde03437.png)
+![Screenshot 2020-05-26 at 20 43 34](https://user-images.githubusercontent.com/50910926/82932880-c60c7180-9f91-11ea-80b2-e829dd9f584d.png)
 
 
 ## Usage
