@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { setRoutine } from '../../actions/routine';
+import { setEvent } from "../../actions/event";
 import { setAlert } from '../../actions/alert';
 import girl_time from '../../assets/girl_time.png';
 
-const Confirmation = () => {
+const Confirmation = ({  }) => {
   const [displayConfrim, setDisplayConfirm] = useState(true);
 
   return displayConfrim && (
