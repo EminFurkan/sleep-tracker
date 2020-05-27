@@ -10,6 +10,8 @@ SleepTracker is a fullstack app built with MERN stack, using Redux for state man
 
 ## Preview
 ![Screenshot 2020-05-26 at 20 43 34](https://user-images.githubusercontent.com/50910926/82932880-c60c7180-9f91-11ea-80b2-e829dd9f584d.png)
+![Screenshot 2020-05-27 at 14 03 52](https://user-images.githubusercontent.com/50910926/83011812-2e576380-a023-11ea-9da2-cfcf46ecc153.png)
+
 
 
 ## Usage

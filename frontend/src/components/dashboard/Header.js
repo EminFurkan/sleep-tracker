@@ -33,7 +33,7 @@ const Header = ({ setRoutine, auth: { loading, user } }) => {
       <div className="header__profile">
         <span>
           <p>Hello {user !== null && user.email.split('@')[0]},</p>
-          <p>You're on a streak of 25!</p>
+          <p>You're on a streak of 1!</p>
         </span>
       </div>
       <Week />
