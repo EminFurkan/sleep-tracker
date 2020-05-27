@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import cam from '../../assets/cam.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setRoutine } from '../../actions/routine';

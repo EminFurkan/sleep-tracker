@@ -1,26 +1,63 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { setEvent } from "../../actions/event";
-import { setAlert } from '../../actions/alert';
+import { setEvent } from '../../actions/event';
+import PropTypes from 'prop-types';
+import { isWithinInterval, addMinutes, set } from 'date-fns';
 import girl_time from '../../assets/girl_time.png';
 
-const Confirmation = ({  }) => {
-  const [displayConfrim, setDisplayConfirm] = useState(true);
+const Confirmation = ({ auth: { user }, setEvent }) => {
+  let isValid = Boolean;
+  const [displayConfrim, setDisplayConfirm] = useState(isValid ? true : false);
 
-  return displayConfrim && (
-    <section className="confirmation">
-      <div className="confirmation__card">
-        <img src={girl_time} alt="timer" />
-        <span className="confirmation__action">
-          <p>Check in with the app to confirm you're up!</p>
-          <button onClick={() => setDisplayConfirm(false)}>
-            <span className="btn-default">Check in</span>
-            <span className="btn"></span>
-          </button>
-        </span>
-      </div>
-    </section>
-  )
+  if (user !== null) {
+    const {
+      routine: { time }
+    } = user;
+
+    const userRoutine = time;
+
+    const hr = userRoutine.split(':')[0];
+    const min = userRoutine.slice(3);
+
+    const userPref = set(new Date(), { hours: hr, minutes: min });
+
+    isValid = isWithinInterval(userPref, {
+      start: addMinutes(new Date(), -15),
+      end: addMinutes(new Date(), 15)
+    });
+  }
+
+  const checkIn = () => {
+    setEvent();
+    setDisplayConfirm(false);
+  };
+
+  return (
+    displayConfrim && (
+      <section className="confirmation">
+        <div className="confirmation__card">
+          <img src={girl_time} alt="timer" />
+          <span className="confirmation__action">
+            <p>Check in with the app to confirm you're up!</p>
+            <button onClick={checkIn}>
+              <span className="btn-default">Check in</span>
+              <span className="btn"></span>
+            </button>
+          </span>
+        </div>
+      </section>
+    )
+  );
 };
 
-export default Confirmation;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+Confirmation.propTypes = {
+  auth: PropTypes.object.isRequired,
+  setEvent: PropTypes.func.isRequired
+};
+
+export default connect(mapStateToProps, { setEvent })(Confirmation);
