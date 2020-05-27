@@ -7,16 +7,15 @@ import Week from './Week';
 const Header = ({ setRoutine, auth: { loading, user } }) => {
   const [display, setDisplay] = useState(false);
   const [time, setTime] = useState();
+  let routine;
 
   const handleClick = () => {
-    let routine;
     if (time && user !== null && time !== user.routine.time) {
-      setRoutine(
-        (routine = {
-          time: time,
-          string: `Your routine is set to ${time}`
-        })
-      );
+      routine = {
+        time: time,
+        string: `Your routine is set to ${time}`
+      };
+      setRoutine(routine);
     }
   };
 
