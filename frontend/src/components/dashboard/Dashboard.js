@@ -21,7 +21,7 @@ export const Dashboard = () => {
             <YearlyReport />
           </div>
         </div>
-      <Confirmation />
+        <Confirmation />
       </section>
     </>
   );

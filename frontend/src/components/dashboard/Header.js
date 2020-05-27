@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setRoutine } from '../../actions/routine';
 import Week from './Week';
+import { findConsecutive } from '../../utils/findConsecutive';
 
-const Header = ({ setRoutine, auth: { loading, user } }) => {
+const Header = ({ setRoutine, auth: { loading, user }, event: { events } }) => {
   const [display, setDisplay] = useState(false);
   const [time, setTime] = useState();
   let routine;
@@ -19,6 +20,17 @@ const Header = ({ setRoutine, auth: { loading, user } }) => {
     }
   };
 
+  let currentStreak;
+  let streakArr = events.map((item) => new Date(item.date).getDate());
+
+  streakArr = streakArr.sort((a, b) => a - b);
+
+  let consecutiveSeries = findConsecutive(streakArr);
+  const finalStreakRecord = consecutiveSeries[consecutiveSeries.length - 1];
+  if (finalStreakRecord !== undefined) {
+    currentStreak = finalStreakRecord.length;
+  }
+
   let min;
   let hr;
 
@@ -32,7 +44,7 @@ const Header = ({ setRoutine, auth: { loading, user } }) => {
       <div className="header__profile">
         <span>
           <p>Hello {user !== null && user.email.split('@')[0]},</p>
-          <p>You're on a streak of 1!</p>
+          <p>You're on a streak of {currentStreak}!</p>
         </span>
       </div>
       <Week />
@@ -76,7 +88,8 @@ const Header = ({ setRoutine, auth: { loading, user } }) => {
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth
+  auth: state.auth,
+  event: state.event
 });
 
 Header.propTypes = {
