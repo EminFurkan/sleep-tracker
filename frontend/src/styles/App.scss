@@ -492,7 +492,6 @@ nav {
     @media (max-width: 900px) {
       width: 100%;
       padding: 0;
-
     }
 
     img {
@@ -501,7 +500,7 @@ nav {
       border-radius: 30px;
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
-      
+
       @media (max-width: 900px) {
         display: none;
       }
@@ -769,6 +768,10 @@ nav {
         color: #252c3b;
         border-bottom: 3px solid #3734a9;
 
+        @media (max-width: 900px) {
+          width: 45%;
+        }
+
         p {
           @include no-select();
           font-size: 18px;
@@ -845,9 +848,9 @@ nav {
     rgba(206, 201, 226, 1) 120.3%
   );
 
-    @media (max-width: 900px) {
-      flex-wrap: wrap;
-    }
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+  }
 
   .item {
     font-size: 36px;
@@ -979,7 +982,7 @@ nav {
       top: 78px;
 
       @media (max-width: 900px) {
-        left: 286px
+        left: 286px;
       }
     }
   }
@@ -995,7 +998,7 @@ nav {
     border-width: 2px;
 
     @media (max-width: 900px) {
-      left: 100px;  
+      left: 100px;
     }
 
     .h-hand {

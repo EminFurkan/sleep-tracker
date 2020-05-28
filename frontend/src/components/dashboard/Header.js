@@ -97,7 +97,8 @@ const mapStateToProps = (state) => ({
 });
 
 Header.propTypes = {
-  setRoutine: PropTypes.func.isRequired
+  setRoutine: PropTypes.func.isRequired,
+  event: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps, { setRoutine })(Header);
