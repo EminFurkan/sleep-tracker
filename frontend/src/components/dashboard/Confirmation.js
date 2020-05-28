@@ -9,7 +9,7 @@ const Confirmation = ({ auth: { user }, setEvent }) => {
   const [displayConfrim, setDisplayConfirm] = useState(false);
   
   useEffect(() => {
-    if (user !== null) {
+    if (user !== null && user.routine) {
       const {
         routine: { time }
       } = user;

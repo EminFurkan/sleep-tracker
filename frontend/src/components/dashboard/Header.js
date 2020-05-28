@@ -44,7 +44,11 @@ const Header = ({ setRoutine, auth: { loading, user }, event: { events } }) => {
       <div className="header__profile">
         <span>
           <p>Hello {user !== null && user.email.split('@')[0]},</p>
-          <p>You're on a streak of {currentStreak}!</p>
+          {currentStreak > 0 ? (
+            <p>You're on a streak of {currentStreak}!</p>
+          ) : (
+            <p>Let's get this started!</p>
+          )}
         </span>
       </div>
       <Week />

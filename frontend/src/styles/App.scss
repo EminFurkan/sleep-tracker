@@ -123,6 +123,10 @@ nav {
     rgba(0, 0, 0, 1) 100%
   );
 
+  @media (max-width: 900px) {
+    overflow-x: hidden;
+  }
+
   &__left {
     display: flex;
     justify-content: flex-end;
@@ -132,6 +136,14 @@ nav {
     img {
       width: 80%;
       margin-bottom: 8rem;
+
+      @media (max-width: 900px) {
+        width: 150%;
+        margin-bottom: 18rem;
+        position: absolute;
+        top: 150px;
+        left: 25%;
+      }
     }
   }
   &__right {
@@ -150,6 +162,11 @@ nav {
       animation: slidein 0.5s linear 0.5s 1 forwards;
       animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
       opacity: 0;
+
+      @media (max-width: 900px) {
+        font-size: 38px;
+        left: -140px;
+      }
     }
 
     .color-1 {
@@ -181,6 +198,11 @@ nav {
       animation: slideup 0.5s linear 1s 1 forwards;
       opacity: 0;
       animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+
+      @media (max-width: 900px) {
+        font-size: 16px;
+        left: -150px;
+      }
     }
 
     @keyframes slidein {
@@ -204,6 +226,31 @@ nav {
       }
     }
 
+    @media (max-width: 900px) {
+      @keyframes slideup {
+        from {
+          opacity: 0;
+          top: 26%;
+        }
+        to {
+          opacity: 1;
+          top: 16%;
+        }
+      }
+    }
+    @media (max-width: 900px) {
+      @keyframes slidein {
+        from {
+          opacity: 0;
+          top: 20%;
+        }
+        to {
+          opacity: 1;
+          top: 10%;
+        }
+      }
+    }
+
     form {
       margin-top: 1.5rem;
       display: flex;
@@ -220,6 +267,18 @@ nav {
         }
         to {
           left: calc(-40px);
+        }
+      }
+
+      @media (max-width: 900px) {
+        top: 380px;
+        @keyframes slide-left {
+          from {
+            right: calc(100vw);
+          }
+          to {
+            left: calc(-160px);
+          }
         }
       }
 
@@ -296,6 +355,11 @@ nav {
   img {
     max-width: 100%;
     max-height: 100%;
+
+    @media (max-width: 900px) {
+      max-width: none;
+      max-height: none;
+    }
   }
 
   .plants {
@@ -304,6 +368,10 @@ nav {
     left: -14%;
     top: 50%;
     transform: rotate(-85deg);
+
+    @media (max-width: 900px) {
+      display: none;
+    }
   }
 
   .plants-2 {
@@ -312,6 +380,10 @@ nav {
     left: 75%;
     top: 50%;
     transform: rotate(-65deg);
+
+    @media (max-width: 900px) {
+      display: none;
+    }
   }
 
   &__text {
@@ -327,6 +399,11 @@ nav {
         opacity: 0;
         animation: appear1 0.7s linear 0s 1 forwards;
         animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+        @media (max-width: 900px) {
+          left: 15%;
+          font-size: 48px;
+        }
 
         @keyframes appear1 {
           from {
@@ -351,6 +428,10 @@ nav {
         opacity: 0;
         animation: appear linear 1s 0.5s 1 forwards;
         animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+        @media (max-width: 900px) {
+          left: 0;
+        }
 
         @keyframes appear {
           from {
@@ -394,6 +475,10 @@ nav {
   height: calc(100vh);
   background-color: #376f92;
 
+  @media (max-width: 900px) {
+    overflow: hidden;
+  }
+
   .container {
     width: 70%;
     height: 48%;
@@ -404,12 +489,22 @@ nav {
     border-radius: 30px;
     box-shadow: $box-shadow;
 
+    @media (max-width: 900px) {
+      width: 100%;
+      padding: 0;
+
+    }
+
     img {
       max-width: 100%;
       max-height: 100%;
       border-radius: 30px;
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
+      
+      @media (max-width: 900px) {
+        display: none;
+      }
     }
   }
 
@@ -424,6 +519,11 @@ nav {
     border-radius: 30px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+
+    @media (max-width: 900px) {
+      width: 90%;
+      height: 90%;
+    }
 
     h2 {
       padding-top: 2rem;
@@ -638,7 +738,7 @@ nav {
 
 // Dashboard
 .dashboard {
-  overflow: hidden;
+  overflow-x: hidden;
   height: calc(100vh);
   background-image: radial-gradient(
     circle farthest-corner at 10% 20%,
@@ -712,7 +812,7 @@ nav {
         .x {
           cursor: pointer;
           margin-left: auto;
-          z-index: 5;
+          z-index: 50;
           .bar1 {
             background-color: #ef7088;
             transform: rotate(-45deg) translate(0px, 0px);
@@ -745,6 +845,10 @@ nav {
     rgba(206, 201, 226, 1) 120.3%
   );
 
+    @media (max-width: 900px) {
+      flex-wrap: wrap;
+    }
+
   .item {
     font-size: 36px;
     width: 62px;
@@ -759,6 +863,12 @@ nav {
     background-color: #b5b4b9;
     border: 1px solid rgba(21, 14, 50, 0.6);
     border-width: 5px;
+
+    @media (max-width: 900px) {
+      font-size: 28px;
+      width: 52px;
+      height: 52px;
+    }
 
     &.checked {
       color: #f7fdfd;
@@ -810,6 +920,19 @@ nav {
       left: calc(77.5vw);
     }
   }
+
+  @media (max-width: 900px) {
+    top: calc(3.2rem);
+
+    @keyframes slide-left-alert {
+      from {
+        left: calc(120vw);
+      }
+      to {
+        left: calc(20vw);
+      }
+    }
+  }
 }
 
 // Schedule
@@ -828,6 +951,11 @@ nav {
   flex-direction: column;
   padding-top: 1.5rem;
   padding-left: 3rem;
+  @media (max-width: 900px) {
+    left: 0;
+    z-index: 35;
+    padding-left: 0;
+  }
 
   input {
     background-position: calc(3rem * 0.25) 50%;
@@ -849,6 +977,10 @@ nav {
       position: absolute;
       left: 310px;
       top: 78px;
+
+      @media (max-width: 900px) {
+        left: 286px
+      }
     }
   }
 
@@ -861,6 +993,10 @@ nav {
     border-radius: 50%;
     border: 1px solid #333;
     border-width: 2px;
+
+    @media (max-width: 900px) {
+      left: 100px;  
+    }
 
     .h-hand {
       position: absolute;
@@ -969,6 +1105,14 @@ nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    margin: 0;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
 
   .monthly-report {
     padding-top: 4rem;
@@ -1079,9 +1223,19 @@ nav {
     display: flex;
     align-items: center;
 
+    @media (max-width: 900px) {
+      padding-left: 4rem;
+    }
+
     img {
       width: 25rem;
       height: 20rem;
+    }
+
+    @media (max-width: 900px) {
+      img {
+        display: none;
+      }
     }
   }
 

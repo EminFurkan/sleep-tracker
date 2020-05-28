@@ -1,13 +1,7 @@
 import React from 'react';
 import { VictoryChart, VictoryLine } from 'victory';
-import { findConsecutive } from '../../utils/findConsecutive';
 
 export const MonthlyReport = () => {
-
-  const nums = [1,3,5, 2,10,2,3,15,-1, 11];
-
-  console.log(findConsecutive(nums));
-
   return (
     <section className="monthly-report">
       <p>Montly Progress</p>
