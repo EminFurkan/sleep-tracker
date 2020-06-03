@@ -19,12 +19,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => (
       ) : (
         <ul>
           <li>
-            <button>How it works</button>
-          </li>
-          <li>
-            <button>Sign up</button>
-          </li>
-          <li>
             <Link to="/login">
               <button>Login</button>
             </Link>

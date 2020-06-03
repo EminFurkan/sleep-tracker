@@ -28,7 +28,13 @@ router.post('/', auth, async (req, res) => {
 // access   Private
 router.get('/', auth, async (req, res) => {
   try {
-    const events = await Event.find({ user: req.user.id }).sort('-date').limit(31);
+    const events = await Event.find({
+      user: req.user.id,
+      created: {
+        $lt: new Date(),
+        $gt: new Date(new Date().getFullYear() + ',' + new Date().getMonth())
+      }
+    }).sort('-date');
 
     res.json(events);
   } catch (err) {

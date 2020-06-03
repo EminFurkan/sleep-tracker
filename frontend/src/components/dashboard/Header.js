@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setRoutine } from '../../actions/routine';
 import Week from './Week';
-import { findConsecutive } from '../../utils/findConsecutive';
+import { findConsecutiveSeries } from '../../utils/findConsecutiveSeries';
 
 const Header = ({ setRoutine, auth: { loading, user }, event: { events } }) => {
   const [display, setDisplay] = useState(false);
@@ -21,11 +21,11 @@ const Header = ({ setRoutine, auth: { loading, user }, event: { events } }) => {
   };
 
   let currentStreak;
-  let streakArr = events.map((item) => new Date(item.date).getDate());
+  const streakArr = events
+    .map((item) => new Date(item.date).getDate())
+    .sort((a, b) => a - b);
 
-  streakArr = streakArr.sort((a, b) => a - b);
-
-  let consecutiveSeries = findConsecutive(streakArr);
+  let consecutiveSeries = findConsecutiveSeries(streakArr);
   const finalStreakRecord = consecutiveSeries[consecutiveSeries.length - 1];
   if (finalStreakRecord !== undefined) {
     currentStreak = finalStreakRecord.length;

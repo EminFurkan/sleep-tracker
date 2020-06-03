@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,200&display=swap');
 
@@ -69,6 +69,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: rgba(41, 196, 255, 1);
 
     span {
       width: 24px;
@@ -82,7 +83,6 @@ nav {
       li {
         height: 3rem;
         width: auto;
-        color: #ef7088;
 
         a {
           text-decoration: none;
@@ -103,7 +103,7 @@ nav {
           outline: none;
 
           &:hover {
-            border-bottom: #ef7088 2px solid;
+            border-bottom: rgba(41, 196, 255, 1) 2px solid;
           }
         }
       }
@@ -777,6 +777,14 @@ nav {
           font-size: 18px;
           font-weight: 600;
           letter-spacing: 1px;
+          background-image: linear-gradient(
+            75.2deg,
+            rgba(41, 196, 255, 1) -2.5%,
+            rgba(255, 158, 211, 1) 55%,
+            rgba(255, 182, 138, 1) 102.3%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
           margin: 1rem;
           margin-bottom: 0.5rem;
 
@@ -784,7 +792,10 @@ nav {
             margin-top: 0;
             margin-bottom: 1rem;
             font-size: 12px;
-            font-weight: 400;
+            font-weight: 500;
+            background-image: none;
+            color: #222;
+            -webkit-text-fill-color: #333;
           }
         }
       }
@@ -844,7 +855,7 @@ nav {
   z-index: 30;
   background: radial-gradient(
     circle farthest-corner at 10% 20%,
-    rgba(251, 222, 238, 1) 15.6%,
+    rgba(251, 222, 238, 1) 55.6%,
     rgba(206, 201, 226, 1) 120.3%
   );
 

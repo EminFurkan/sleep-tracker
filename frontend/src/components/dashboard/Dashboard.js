@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../layout/Navbar';
 import Header from './Header';
-import { MonthlyReport } from './MonthlyReport';
+import MonthlyReport from './MonthlyReport';
 import Month from './Month';
 import { YearlyReport } from './YearlyReport';
 import Confirmation from './Confirmation';

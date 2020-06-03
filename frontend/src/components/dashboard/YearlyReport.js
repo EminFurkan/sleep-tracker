@@ -2,20 +2,21 @@ import React from 'react';
 import { VictoryChart, VictoryBar, VictoryTheme, VictoryAxis } from 'victory';
 
 export const YearlyReport = () => {
-  const sampleData = [
+  const data = [
     { x: 1, y: 20 },
-    // { x: 2, y: 30 },
-    // { x: 3, y: 40 },
-    // { x: 4, y: 50 },
-    // { x: 5, y: 60 },
-    // { x: 6, y: 70 },
-    // { x: 7, y: 80 },
-    // { x: 8, y: 30 },
-    // { x: 9, y: 40 },
-    // { x: 10, y: 10 },
-    // { x: 11, y: 60 },
-    // { x: 12, y: 20 }
+    { x: 2, y: 30 },
+    { x: 3, y: 40 },
+    { x: 4, y: 50 },
+    { x: 5, y: 60 },
+    { x: 6, y: 70 },
+    { x: 7, y: 80 },
+    { x: 8, y: 30 },
+    { x: 9, y: 40 },
+    { x: 10, y: 10 },
+    { x: 11, y: 60 },
+    { x: 12, y: 20 }
   ];
+
   const tags = [
     'Jan',
     'Feb',
@@ -49,10 +50,10 @@ export const YearlyReport = () => {
             data: { fill: '#69f0ae', width: 20 },
             labels: { fill: '#01579b' }
           }}
-          data={sampleData}
+          data={data}
           x={tags['x']}
           domain={{ x: [0, 13] }}
-          labels={({ datum }) => `${datum.y} hrs`}
+          labels={({ datum }) => `${datum.y} pts`}
         />
       </VictoryChart>
     </section>

@@ -1,5 +1,5 @@
-export const findConsecutive = (arr) => {
-  const consecutiveSeries = arr.reduce((r, n) => {
+export const findConsecutiveSeries = (arr) => {
+  const result = arr.reduce((r, n) => {
     const lastSubArr = r[r.length - 1];
 
     if (!lastSubArr || lastSubArr[lastSubArr.length - 1] !== n - 1) {
@@ -11,5 +11,5 @@ export const findConsecutive = (arr) => {
     return r;
   }, []);
 
-  return consecutiveSeries;
+  return result;
 };
