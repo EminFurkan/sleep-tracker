@@ -10,10 +10,16 @@ const MonthlyReport = ({ event: { events } }) => {
     .sort((a, b) => a - b);
 
   const userStreak = findConsecutiveSeries(eventsArr);
+  console.log(userStreak)
 
-  const plot = [];
+  const plotY = [];
 
-  userStreak
+  [
+    [1, 2, 3, 4],
+    [6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 16, 17, 18],
+    [27, 28, 29]
+  ]
     .map((currentArr, idx, data) => [
       currentArr.length,
       (data[idx + 1]
@@ -21,10 +27,10 @@ const MonthlyReport = ({ event: { events } }) => {
         : 30 - data[data.length - 1][data[data.length - 1].length - 1]) * -1
     ])
     .flat()
-    .map((val, idx, arr) => {
+    .map((val) => {
       let start;
-      if (plot.length > 0) {
-        start = plot[plot.length - 1][plot[plot.length - 1].length - 1];
+      if (plotY.length > 0) {
+        start = plotY[plotY.length - 1][plotY[plotY.length - 1].length - 1];
       } else {
         start = 0;
       }
@@ -33,15 +39,15 @@ const MonthlyReport = ({ event: { events } }) => {
       const array = new Array(difference + 1)
         .fill()
         .map((val, idx) => (start > end ? start - idx : start + idx));
-      plot.push(array);
+      plotY.push(array);
     });
-  console.log(plot.flat());
-  console.log(userStreak);
 
-  const data = [
-    { x: 29, y: 1 },
-    { x: 30, y: 2 }
-  ];
+  const plotX = [...Array(plotY.length + 1).keys()];
+
+  // const test = Object.fromEntries(plotX.map((_, i) => [plotX[i], plotY[i]]));
+
+  console.log('plot-x:', plotX);
+  console.log('plot-y:', plotY.flat());
 
   return (
     <section className="monthly-report">
@@ -54,7 +60,7 @@ const MonthlyReport = ({ event: { events } }) => {
             data: { stroke: '#227BD8' },
             parent: { border: '4px solid #F07250' }
           }}
-          data={data}
+          data={[{ x: 1, y: 1 }]}
         />
       </VictoryChart>
     </section>

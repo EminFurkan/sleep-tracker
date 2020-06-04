@@ -27,12 +27,18 @@ router.post('/', auth, async (req, res) => {
 // @desc    Get all events
 // access   Private
 router.get('/', auth, async (req, res) => {
+  const date = new Date(),
+    y = date.getFullYear(),
+    m = date.getMonth();
+  const firstDay = new Date(y, m, 1);
+  const lastDay = new Date(y, m + 1, 0);
+
   try {
     const events = await Event.find({
       user: req.user.id,
-      created: {
-        $lt: new Date(),
-        $gt: new Date(new Date().getFullYear() + ',' + new Date().getMonth())
+      date: {
+        $lt: lastDay,
+        $gte: firstDay
       }
     }).sort('-date');
 
