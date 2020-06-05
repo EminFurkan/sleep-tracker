@@ -11,15 +11,16 @@ const MonthlyReport = ({ event: { events } }) => {
 
   const userStreak = findConsecutiveSeries(eventsArr);
 
-  const plotY = [];
+  const today = new Date().getDate();
 
-  // userStreak
-  [[1,2,3,4,5,6,7,8,9]]
+  const plotY = [[null]];
+
+  userStreak
     .map((currentArr, idx, data) => [
       currentArr.length,
       (data[idx + 1]
         ? data[idx + 1][0] - currentArr[currentArr.length - 1]
-        : 30 - data[data.length - 1][data[data.length - 1].length - 1]) * -1
+        : today - data[data.length - 1][data[data.length - 1].length - 1]) * -1
     ])
     .flat()
     .map((val) => {
@@ -39,8 +40,8 @@ const MonthlyReport = ({ event: { events } }) => {
 
   const plot = [];
   plotY.flat().reduce((acc, val, idx) => {
-    return plot.push({ x: idx, y: val });
-  }, []);
+      return plot.push({ x: idx, y: val });
+  });
 
   return (
     <section className="monthly-report">
