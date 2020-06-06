@@ -16,6 +16,15 @@ const Month = ({ event: { events } }) => {
   );
   const remainerDates = [];
 
+  const month = new Date().getMonth();
+
+  events = events.reduce(
+    (acc, event) => (
+      new Date(event.date).getMonth() === month && acc.push(event), acc
+    ),
+    []
+  );
+
   const checked = findCheckedDates(events, 'month');
 
   for (

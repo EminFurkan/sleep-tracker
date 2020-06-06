@@ -5,7 +5,14 @@ import PropTypes from 'prop-types';
 import { findConsecutiveSeries } from '../../utils/findConsecutiveSeries';
 
 const MonthlyReport = ({ event: { events } }) => {
+  const currentMonth = new Date().getMonth();
   const eventsArr = events
+    .reduce(
+      (acc, event) => (
+        new Date(event.date).getMonth() === currentMonth && acc.push(event), acc
+      ),
+      []
+    )
     .map((event) => new Date(event.date).getDate())
     .sort((a, b) => a - b);
 
@@ -35,12 +42,12 @@ const MonthlyReport = ({ event: { events } }) => {
       const array = new Array(difference + 1)
         .fill()
         .map((val, idx) => (start > end ? start - idx : start + idx));
-      plotY.push(array);
+      return plotY.push(array);
     });
 
   const plot = [];
   plotY.flat().reduce((acc, val, idx) => {
-      return plot.push({ x: idx, y: val });
+    return plot.push({ x: idx, y: val });
   });
 
   return (

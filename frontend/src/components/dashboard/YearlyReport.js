@@ -1,21 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { VictoryChart, VictoryBar, VictoryTheme, VictoryAxis } from 'victory';
 
-export const YearlyReport = () => {
-  const data = [
-    { x: 1, y: 20 },
-    { x: 2, y: 30 },
-    { x: 3, y: 40 },
-    { x: 4, y: 50 },
-    { x: 5, y: 60 },
-    { x: 6, y: 70 },
-    { x: 7, y: 80 },
-    { x: 8, y: 30 },
-    { x: 9, y: 40 },
-    { x: 10, y: 10 },
-    { x: 11, y: 60 },
-    { x: 12, y: 20 }
-  ];
+const YearlyReport = ({ event: { events } }) => {
+  const groupedByMonth = events.map((val) => new Date(val.date).getMonth());
+
+  let data = [];
+  for (let i = 1; i <= 12; i++) data.push(i);
+
+  const getOccurrence = (array, value) => {
+    return array.filter((v) => v === value).length;
+  };
+
+  data = data.map((month) => {
+    let getSteakCount = getOccurrence(groupedByMonth, month);
+    return { x: month, y: getSteakCount };
+  });
 
   const tags = [
     'Jan',
@@ -53,9 +54,19 @@ export const YearlyReport = () => {
           data={data}
           x={tags['x']}
           domain={{ x: [0, 13] }}
-          labels={({ datum }) => `${datum.y} pts`}
+          labels={({ datum }) => `${datum.y}`}
         />
       </VictoryChart>
     </section>
   );
 };
+
+const mapStateToProps = (state) => ({
+  event: state.event
+});
+
+YearlyReport.propTypes = {
+  event: PropTypes.object.isRequired
+};
+
+export default connect(mapStateToProps)(YearlyReport);

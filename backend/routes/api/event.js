@@ -36,10 +36,10 @@ router.get('/', auth, async (req, res) => {
   try {
     const events = await Event.find({
       user: req.user.id,
-      date: {
-        $lt: lastDay,
-        $gte: firstDay
-      }
+      // date: {
+      //   $lt: lastDay,
+      //   $gte: firstDay
+      // }
     }).sort('-date');
 
     res.json(events);
