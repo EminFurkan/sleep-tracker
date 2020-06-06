@@ -1,6 +1,6 @@
 # SleepTracker
 
-Live demo: coming soon
+[Live demo](https://sleep-trackr.herokuapp.com/)
 
 ## Description
 SleepTracker helps you track your daily sleeping habits <br />
