@@ -28,4 +28,4 @@ cd backend <br />
 npm start <br />
 will start the server on http://localhost:8080/ <br /><br />
 
-To get the app running on a mongoDB database, you will also want to create an either local or cloud cluster and include the URI in /backend/config/.env
+To get the app running on a mongoDB database, you will also want to create an either local or cloud cluster and include the URI in /config/.env
